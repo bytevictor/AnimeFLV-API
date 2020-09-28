@@ -15,5 +15,6 @@
    	
    	<img align="center" src="imagenes/Screenshot_2.png"></img>
 
+ - ### Comprobación git remote
 
    	<img align="center" src="imagenes/Screenshot_3.png"></img>

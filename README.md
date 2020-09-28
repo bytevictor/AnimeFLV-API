@@ -19,6 +19,9 @@ El objetivo es automatizar las tareas anteriormente comentadas, en un principio 
 
  
 - **IDE:** Visual Studio Code  <img align="right" src="https://code.visualstudio.com/opengraphimg/opengraph-blog.png" width=20%></img>
-  > He elegido VSCode como IDE ya que estoy medianamente familiarizado con el debido a otros proyectos que he hecho por mi cuenta y me gusta la integración que ofrece tanto con Git como con el subsistema de Linux para Windows.
+  > He elegido VSCode como IDE ya que estoy medianamente familiarizado con él, debido a otros proyectos que he hecho por mi cuenta y me gusta la integración que ofrece tanto con Git como con el subsistema de Linux para Windows.
 ## Documentos
-La configuración inicial de github puede verse [AQUÍ]()
+La configuración inicial de github puede verse [AQUÍ](https://github.com/ByteVictor/AnimeFLV-API/blob/master/documentos/configuracion_inicial/configuracion_inicial.md)
+
+## Autor
+[Víctor González Argudo / ByteVictor](https://github.com/ByteVictor)
