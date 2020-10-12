@@ -21,9 +21,14 @@ El objetivo es automatizar las tareas anteriormente comentadas, en un principio 
 - **IDE:** Visual Studio Code  <img align="right" src="https://code.visualstudio.com/opengraphimg/opengraph-blog.png" width=20%></img>
   > He elegido VSCode como IDE ya que estoy medianamente familiarizado con él, debido a otros proyectos que he hecho por mi cuenta y me gusta la integración que ofrece tanto con Git como con el subsistema de Linux para Windows.
 ## Documentos
+- [Primera aproximación al código (HITO 1)](https://github.com/ByteVictor/AnimeFLV-API/blob/master/src/serie.ts)
+Algunos atributos no cuentan con setter debido a que no se contempla que puedan cambiar después de construirse el objeto, si en un futuro son necesarios se añadirán.
+
+- Ver los [PASOS 🦶])() a realizar 
+
 - Ver [Historias de Usuario📚](https://github.com/ByteVictor/AnimeFLV-API/blob/master/docs/historias_usuario/historiasdeusuario.md )
 
-- La configuración inicial de github puede verse [AQUÍ](https://github.com/ByteVictor/AnimeFLV-API/blob/master/documentos/configuracion_inicial/configuracion_inicial.md)
+- La configuración inicial de github puede verse [AQUÍ](https://github.com/ByteVictor/AnimeFLV-API/blob/master/docs/configuracion_inicial/configuracion_inicial.md)
 
 ## Autor
 [Víctor González Argudo / ByteVictor](https://github.com/ByteVictor)
