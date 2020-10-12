@@ -12,6 +12,7 @@ El objetivo es crear la infraestructura necesaria para el despliegue de un proye
 	1. Creación de historias de usuario
 	2. Creación de issues y su respectivo enlace con el Milestone correspondiente
 	3. Iniciación de código (Esqueleto de una clase)
+		- Con esto se ha progresado en las historias de usuario [HU01](https://github.com/ByteVictor/AnimeFLV-API/issues/1) [HU03](https://github.com/ByteVictor/AnimeFLV-API/issues/3) y [HU04](https://github.com/ByteVictor/AnimeFLV-API/issues/4)
 	4. Refinamiento de la documentación del proyecto
 - ### Hito 2: [Tests unitarios para la clase/s diseñadas](https://jj.github.io/IV/documentos/proyecto/2.Tests)
 - ### Hito 3: [Creando microservicios](https://jj.github.io/IV/documentos/proyecto/3.Microservicios)
