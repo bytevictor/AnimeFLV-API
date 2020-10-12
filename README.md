@@ -24,7 +24,7 @@ El objetivo es automatizar las tareas anteriormente comentadas, en un principio 
 - [Primera aproximación al código (HITO 1)](https://github.com/ByteVictor/AnimeFLV-API/blob/master/src/serie.ts)
 Algunos atributos no cuentan con setter debido a que no se contempla que puedan cambiar después de construirse el objeto, si en un futuro son necesarios se añadirán.
 
-- Ver los [PASOS 🦶])() a realizar 
+- Ver los [PASOS 🦶])(https://github.com/ByteVictor/AnimeFLV-API/blob/master/docs/pasos/pasos.md) a realizar 
 
 - Ver [Historias de Usuario📚](https://github.com/ByteVictor/AnimeFLV-API/blob/master/docs/historias_usuario/historiasdeusuario.md )
 
