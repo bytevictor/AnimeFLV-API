@@ -14,12 +14,22 @@ El objetivo es automatizar las tareas anteriormente comentadas, en un principio 
 
 ## Herramientas de desarrollo  🧰
 
- -  **Lenguaje:** Typescript <img align="right" src="https://miro.medium.com/max/1004/1*ZfCTE6kZArxc0Nr_MybXPQ.png" width=20%></img>
-     > He elegido este lenguaje debido a que usé JavaScript en anteriores asignaturas y me parece que da un enfoque interesante, así que quiero aprovechar este proyecto para aprender a utilizarlo
+-  **Lenguaje:** Typescript <img align="right" src="https://miro.medium.com/max/1004/1*ZfCTE6kZArxc0Nr_MybXPQ.png" width=20%></img>
+    > He elegido este lenguaje debido a que usé JavaScript en anteriores asignaturas y me parece que da un enfoque interesante, así que quiero aprovechar este proyecto para aprender a utilizarlo
+-  **Gestor de versiones:** Node Version Manager (nvm). Más información [AQUÍ](https://github.com/nvm-sh/nvm/blob/master/README.md)
+> He elegido este gestor de versiones porque parece ser el mejor mantenido de todos los que he barajado, además hay bastante documentación y su uso está extendido entre los desarrolladores de Node.js y Typescript.
+- **Gestor de Dependencias:** Node Package Manager (npm). Más información [AQUÍ](https://www.npmjs.com/package/npm)
+> He elegido este gestor de dependencias porque es el gestor de paquetes por defecto de Node.js, además fue el que utilicé para instalar Typescript en el entorno, así que simplemente he seguido utilizándolo ya que es bastante flexible, versátil y hay mucha documentación.
+- **Test Framework:** Mocha
+> He elegido este test framework ya que es un framework ligero, debido a que los tests que vamos a realizar serán tests simples, además me ha parecido buena elección ya que simplificar los tests sigue la "regla de oro" de las buenas prácticas del testing en Node.js y Javascript que pueden consultarse [AQUÍ](https://github.com/goldbergyoni/javascript-testing-best-practices/)
 
+## Tests
+Como hemos comentado anteriormente en el apartado de herramientas hemos seleccionado Mocha como framework para los tests.
+Mocha al ser un framework tan ligero no incluye biblioteca de aserciones, así que debemos instalar una, en este caso hemos seleccionado la que parece ser la más utilizada junto con Mocha, **Chai**.
+Para instalar ambos empleamos:
+>npm install -D mocha chai
+ (-D para marcarlos como paquetes que de testeo, no necesarios para la propia aplicación)
  
-- **IDE:** Visual Studio Code  <img align="right" src="https://code.visualstudio.com/opengraphimg/opengraph-blog.png" width=20%></img>
-  > He elegido VSCode como IDE ya que estoy medianamente familiarizado con él, debido a otros proyectos que he hecho por mi cuenta y me gusta la integración que ofrece tanto con Git como con el subsistema de Linux para Windows.
 ## Documentos
 - [Primera aproximación al código](https://github.com/ByteVictor/AnimeFLV-API/blob/master/src/serie.ts)
 Algunos atributos no cuentan con setter debido a que no se contempla que puedan cambiar después de construirse el objeto, si en un futuro son necesarios se añadirán.
