@@ -39,6 +39,8 @@ class Serie {
     borrarCapitulo(numero_capitulo: number){
         if( this._capitulos.has(numero_capitulo) ){
             this._capitulos.delete(numero_capitulo);
+        } else {
+            throw new Error("El capitulo que intentas borrar no existe: " + numero_capitulo);
         }
     }
 
@@ -46,7 +48,7 @@ class Serie {
         if( this._capitulos.has( numero_capitulo )){
             return this._capitulos.get(numero_capitulo);
         } else {
-            throw new Error("El capitulo no existe");
+            throw new Error("El capitulo no existe: " + numero_capitulo);
         }
     }
 
