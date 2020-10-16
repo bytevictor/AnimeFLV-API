@@ -14,7 +14,12 @@ describe('Test para clase Serie', function() {
     it('Se espera que devuelva el numero de capitulos de la serie', function() {
         expect(serie.numero_capitulos).equal(1);
      })
-    
+    it('Se espera que devuelva el link del capitulo 1', function() {
+        expect(serie.getLinkCapitulo(1)).equal('https://www3.animeflv.net/ver/fairy-tail-1');
+    })
+    it('Se espera que devuelva un error al buscar un capitulo inexistente', function(){ 
+        expect(serie.getLinkCapitulo(5)).to.throw();
+    })
 });
 
 
