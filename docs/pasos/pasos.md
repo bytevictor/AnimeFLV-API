@@ -18,6 +18,18 @@ El objetivo es crear la infraestructura necesaria para el despliegue de un proye
 [*AQUÍ*](https://github.com/ByteVictor/AnimeFLV-API/milestone/1?closed=1) Se pueden ver todas las issues completadas para este hito (agrupadas en el milestone correspondiente). 
 
 - ### Hito 2: [Tests unitarios para la clase/s diseñadas](https://jj.github.io/IV/documentos/proyecto/2.Tests)
+	1. Investigación sobre herramientas 
+	2. Seleccionado e instalado las herramientas correspondientes
+		- Gestor de versiones
+		- Gestor de dependencias
+		- Taskfile
+		- Framework para tests
+	3. Implementados algunos métodos para poder testear
+		- Con esto se ha progresado en la historias de usuario [HU01](https://github.com/ByteVictor/AnimeFLV-API/issues/1) 
+	4. Implementados tests sobre los métodos
+	5. Añadida documentación sobre todo lo anterior
+		
+[*AQUÍ*](https://github.com/ByteVictor/AnimeFLV-API/milestone/2) Se pueden ver todas las issues completadas para este hito (agrupadas en el milestone correspondiente). 
 - ### Hito 3: [Creando microservicios](https://jj.github.io/IV/documentos/proyecto/3.Microservicios)
 - ### Hito 4: [Desplegando a la nube, Platform as a Service](https://jj.github.io/IV/documentos/proyecto/4.PaaS).
 - ### Hito 5: [Contenedores para despliegue de microservicios](https://jj.github.io/IV/documentos/proyecto/5.Docker) 
