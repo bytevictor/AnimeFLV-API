@@ -1,3 +1,4 @@
+
 class Serie {
     private _titulo: string;
     private _descripcion: string;
@@ -5,10 +6,9 @@ class Serie {
     //Array con los links de capitulos que forman la serie
     private _capitulos = new Map<number, string>();
 
-    constructor(titulo: string, descripcion: string, numero_capitulos: number){
+    constructor(titulo: string, descripcion: string){
         this._titulo = titulo;
         this._descripcion = descripcion;
-        this._numero_capitulos = numero_capitulos;
     }
 
     get titulo(): string{
@@ -57,3 +57,6 @@ class Serie {
     }
 
 }
+
+
+export default Serie;
