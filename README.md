@@ -35,7 +35,7 @@ Para instalar ambos empleamos:
 - Tambien necesitamos el módulo ts-node
 >npm install -D ts-node
 
-La información sobre la instalación de Mocha y otros Frameworks se ha obtenido de [AQUÍ]((https://medium.com/@RupaniChirag/writing-unit-tests-in-typescript-d4719b8a0a40))
+La información sobre la instalación de Mocha y otros Frameworks se ha obtenido de [AQUÍ](https://medium.com/@RupaniChirag/writing-unit-tests-in-typescript-d4719b8a0a40)
 
 ### Para Ejecutar:
 >npm run test
