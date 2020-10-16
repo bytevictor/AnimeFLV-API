@@ -1,5 +1,5 @@
 
-class Serie {
+export default class Serie {
     private _titulo: string;
     private _descripcion: string;
     private _numero_capitulos: number = 0;
@@ -58,5 +58,3 @@ class Serie {
 
 }
 
-
-export default Serie;
