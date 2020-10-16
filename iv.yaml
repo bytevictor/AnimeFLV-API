@@ -1,4 +1,4 @@
 entidad: src/serie.ts
 lenguaje: TypeScript
-test: tests/test.ts
+test: tests/serie.spec.ts
 taskfile: package.json
