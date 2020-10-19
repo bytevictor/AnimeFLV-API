@@ -1,6 +1,6 @@
 {
     "name": "AnimeFLV-API",
-    "author": "Víctor González",
+    "author": "Víctor González Argudo",
     "repository": "github:ByteVictor/AnimeFLV-API",
     "devDependencies": {
         "@types/chai": "^4.2.13",

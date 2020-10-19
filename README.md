@@ -61,4 +61,4 @@ Algunos atributos no cuentan con setter debido a que no se contempla que puedan 
 - La configuración inicial de github puede verse [AQUÍ](https://github.com/ByteVictor/AnimeFLV-API/blob/master/docs/configuracion_inicial/configuracion_inicial.md)
 
 ## Autor
-[Víctor González Argudo / ByteVictor](https://github.com/ByteVictor)
+[Víctor González Argudo / ByteVictor](https://github.com/ByteVictor) 
