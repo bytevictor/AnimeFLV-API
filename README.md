@@ -29,14 +29,11 @@ El objetivo es automatizar las tareas anteriormente comentadas, en un principio 
 ## Tests
 Como hemos comentado anteriormente en el apartado de herramientas hemos seleccionado Mocha como framework para los tests.
 Mocha al ser un framework tan ligero no incluye biblioteca de aserciones, así que debemos instalar una, en este caso hemos seleccionado la que parece ser la más utilizada junto con Mocha, **Chai**.
-Para instalar ambos empleamos:
-- Para instalar Mocha y Chai:
->npm install -D mocha chai
- (-D para marcarlos como paquetes que de testeo, no necesarios para la propia aplicación)
-- Para instalar los tipos necesarios de Mocha y Chai
->npm install -D @types/chai @types/mocha
-- Tambien necesitamos el módulo ts-node
->npm install -D ts-node
+Para instalar ambos empleamos el gestor de paquetes:
+
+>npm install
+
+Con el anterior comando toda la aplicación debería quedar lista para ejecutar tests, pero se pueden ver [los pasos detallados AQUÍ](https://github.com/ByteVictor/AnimeFLV-API/tree/master/docs/instalacion_mochachai/mochchai.md)
 
 La información sobre la instalación de Mocha y otros Frameworks se ha obtenido de [AQUÍ](https://medium.com/@RupaniChirag/writing-unit-tests-in-typescript-d4719b8a0a40)
 
