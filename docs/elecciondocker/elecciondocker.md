@@ -1,4 +1,4 @@
-## Analisis de imagenes de Docker
+## Análisis de imagenes de Docker
 
 Para la elección de la imagen de Docker, vamos a basarnos en dos parámetros, su tamaño (queremos un tamaño ligero) y la eficiencia al ejecutar los tests (el tiempo que tarda).
 
