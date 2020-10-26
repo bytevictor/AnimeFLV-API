@@ -2,20 +2,26 @@ FROM node:14.14.0-stretch-slim
 LABEL version "1.0" mantainer="ByteVictor"
 
 
-#Creamos un directorio donde se ejecutará nuestra apliación
+
+RUN mkdir /animeflv_modules
 RUN mkdir /test
 
-#Montamos el directorio de la aplicación
-#esto ya se hace desde el comando de pruebas
-#VOLUME /test
-
 #Cambiamos el directorio para poder acceder a los archivos
-WORKDIR /test
+WORKDIR /animeflv_modules
+
+COPY package.json .
+COPY package-lock.json .
 
 RUN npm install
 
+RUN chmod 777 /animeflv_modules/*
+
 #Por defecto funciona como root, cambiamos el nivel de permisos
 RUN useradd usuario
+RUN chown -R usuario:usuario /animeflv_modules
 USER usuario
 
-CMD npm run test
+
+WORKDIR /test
+
+CMD cp -r /animeflv_modules/node_modules/ /test/ && npm run test
