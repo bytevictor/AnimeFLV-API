@@ -1,5 +1,6 @@
 {
     "name": "AnimeFLV-API",
+    "version": "0.0.1",
     "author": "Víctor González Argudo",
     "repository": "github:ByteVictor/AnimeFLV-API",
     "devDependencies": {
