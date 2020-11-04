@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - "15"
+  - "14"
+  - "13"
+  - "12"
+  - "11"
+before_install:
+  - npm ci
+script: npm run test
