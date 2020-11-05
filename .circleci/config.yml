@@ -6,4 +6,4 @@ jobs:
     steps:
       - checkout
       - run: docker build -t bytevictor/animeflv-api .
-      - run: docker run -t -v pwd:/test bytevictor/animeflv-api
+      - run: docker run -t -v `pwd`:/test bytevictor/animeflv-api
