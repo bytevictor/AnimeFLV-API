@@ -1,11 +1,9 @@
+version: 2.1
 
-version: 2
 jobs:
   build:
-    docker:
-      - image: bytevictor/animeflv-api
+    machine: true
     steps:
       - checkout
-      - run:
-          name: Ejecucción de los tests
-          command: 'npm run test'
+      - run: docker build -t bytevictor/animeflv-api .
+      - run: docker run -t -v pwd:/test bytevictor/animeflv-api
