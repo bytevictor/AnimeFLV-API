@@ -1,3 +1,7 @@
+![badgetravis](https://img.shields.io/travis/com/bytevictor/animeflv-api?label=Travis&style=for-the-badge) <img align="right" src="https://img.shields.io/circleci/build/github/bytevictor/AnimeFLV-API?label=CircleCI&style=for-the-badge">
+
+![](https://img.shields.io/github/milestones/progress-percent/bytevictor/animeflv-api/1?style=flat-square) ![](https://img.shields.io/github/milestones/progress-percent/bytevictor/animeflv-api/2?style=flat-square) ![](https://img.shields.io/github/milestones/progress-percent/bytevictor/animeflv-api/3?style=flat-square) ![](https://img.shields.io/github/milestones/progress-percent/bytevictor/animeflv-api/4?style=flat-square) ![](https://img.shields.io/github/milestones/progress-percent/bytevictor/animeflv-api/5?style=flat-square) ![](https://img.shields.io/github/milestones/progress-percent/bytevictor/animeflv-api/6?style=flat-square)
+
 # AnimeFLV-API              	(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
 
 Este proyecto tiene como objetivo crear una API para interactuar con la web de anime, AnimeFLV de forma sencilla y automatizada.
@@ -26,30 +30,16 @@ El objetivo es automatizar las tareas anteriormente comentadas, en un principio 
 - **Test Framework:** Mocha. Más información [AQUÍ](https://medium.com/@RupaniChirag/writing-unit-tests-in-typescript-d4719b8a0a40)
     > He elegido este test framework ya que es un framework ligero, debido a que los tests que vamos a realizar serán tests simples, además me ha parecido buena elección ya que simplificar los tests sigue la "regla de oro" de las buenas prácticas del testing en Node.js y Javascript que pueden consultarse [AQUÍ](https://github.com/goldbergyoni/javascript-testing-best-practices/) 
 
-## Tests
-Como hemos comentado anteriormente en el apartado de herramientas hemos seleccionado Mocha como framework para los tests.
-Mocha al ser un framework tan ligero no incluye biblioteca de aserciones, así que debemos instalar una, en este caso hemos seleccionado la que parece ser la más utilizada junto con Mocha, **Chai**.
-Para instalar ambos empleamos el gestor de paquetes:
+## Integración Continua
 
->npm install
+Se han configurado dos sistemas de integración continua, 
 
-Con el anterior comando toda la aplicación debería quedar lista para ejecutar tests, pero se pueden ver [los pasos detallados AQUÍ](https://github.com/ByteVictor/AnimeFLV-API/tree/master/docs/instalacion_mochachai/mochchai.md)
-
-La información sobre la instalación de Mocha y otros Frameworks se ha obtenido de [AQUÍ](https://medium.com/@RupaniChirag/writing-unit-tests-in-typescript-d4719b8a0a40)
-
-### Para Ejecutar:
->npm run test
-
-El resultado de la ejecución de los primeros tests se puede ver [AQUÍ](https://github.com/ByteVictor/AnimeFLV-API/blob/master/docs/tests/primeraejecucion.png)
-
-### Código
-
-Todo el código de los tests se añadirá al directorio [/tests](https://github.com/ByteVictor/AnimeFLV-API/tree/master/tests).
-- El código de los primeros tests se puede consultar [AQUÍ](https://github.com/ByteVictor/AnimeFLV-API/blob/master/tests/serie.spec.ts)
 
 ## Documentos
 
 - [Documentación de Docker, imágenes y DockerHub](https://github.com/ByteVictor/AnimeFLV-API/blob/master/docs/doc_docker/docker.md)
+
+- [Información sobre tests y cómo testear el proyecto]()
 
 - [Primera aproximación al código](https://github.com/ByteVictor/AnimeFLV-API/blob/master/src/serie.ts)
 Algunos atributos no cuentan con setter debido a que no se contempla que puedan cambiar después de construirse el objeto, si en un futuro son necesarios se añadirán.
