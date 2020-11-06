@@ -32,14 +32,33 @@ El objetivo es automatizar las tareas anteriormente comentadas, en un principio 
 
 ## Integración Continua
 
-Se han configurado dos sistemas de integración continua, 
+Se han configurado dos sistemas de integración continua:
 
+- #### Travis:
+    Se ha escogido Travis como primer sistema de integración continua por varias razones, es gratis, es sencillo, está bien integrado en github, configurarlo es fácil y además era usado y recomendado por el profesor.
+
+    Se puede ver como se ha puesto en marcha travis en [los ejercicios del tema](https://github.com/bytevictor/EjerciciosIV/blob/master/hito4/README.md)
+
+
+    La configuración de Travis se puede ver en [el siguiente fichero](https://github.com/bytevictor/AnimeFLV-API/blob/master/.travis.yml)
+
+- #### Circle-CI:
+    Se ha escogido Circle-CI como segundo sistema de integración continua porque se buscaba un segundo sistema para ejecutar los tests empleando la imagen de Docker, CircleCI contaba con mucha documentación al respecto y parecía sencillo.
+    La documentación que se ha empleado para la configuración es la siguiente:
+
+    - [Cómo ejecutar una máquina de linux básica en circleci y ejecutar comandos](https://circleci.com/docs/2.0/examples-intro/#linux-with-machine)
+    - [Cómo elegir y configurar una imagen para la máquina](https://circleci.com/docs/2.0/configuration-reference/#machine)
+
+
+    Primero se intentó ejecutar directamente con las opciones de docker que da CircleCI pero como en nuestro caso tenemos que ejecutar el docker con los argumentos para el volumen, al final se ha optado por ejecutar una máquina y dentro ejecutar el docker con los argumentos que queríamos, de este modo la configuración era mas sencilla, permitía mas posibilidades y en vez de coger una imagen ya buildeada rebuildeamos la imagen, lo que nos asegura que siempre trabajamos con la última versión de la imagen aunque DockerHub aún no se haya actualizado.
+
+    La configuración final puede verse en [el siguiente fichero](https://github.com/bytevictor/AnimeFLV-API/blob/master/.circleci/config.yml)
 
 ## Documentos
 
 - [Documentación de Docker, imágenes y DockerHub](https://github.com/ByteVictor/AnimeFLV-API/blob/master/docs/doc_docker/docker.md)
 
-- [Información sobre tests y cómo testear el proyecto]()
+- [Información sobre tests y cómo testear el proyecto](https://github.com/bytevictor/AnimeFLV-API/blob/master/docs/tests/tests.md)
 
 - [Primera aproximación al código](https://github.com/ByteVictor/AnimeFLV-API/blob/master/src/serie.ts)
 Algunos atributos no cuentan con setter debido a que no se contempla que puedan cambiar después de construirse el objeto, si en un futuro son necesarios se añadirán.
