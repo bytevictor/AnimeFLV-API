@@ -37,7 +37,7 @@ Se han configurado dos sistemas de integración continua:
 - #### Travis:
     Se ha escogido Travis como primer sistema de integración continua por varias razones, es gratis, es sencillo, está bien integrado en github, configurarlo es fácil y además era usado y recomendado por el profesor.
 
-    Se puede ver como se ha puesto en marcha travis en [los ejercicios del tema](https://github.com/bytevictor/EjerciciosIV/blob/master/hito4/README.md)
+    Se puede ver como se ha puesto en marcha travis en [los ejercicios del tema](https://github.com/bytevictor/EjerciciosIV/blob/master/H4/README.md)
 
 
     La configuración de Travis se puede ver en [el siguiente fichero](https://github.com/bytevictor/AnimeFLV-API/blob/master/.travis.yml)
