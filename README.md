@@ -25,13 +25,13 @@ Se han configurado dos sistemas de integración continua:
 
     Se ejecutan los tests en las siguientes versiones de node :
 
-    - Última versión estable: Es importante comprobar que funciona en la versión mas nueva para seguir dándole soporte a la aplicación y mantenerla actualizada y/o detectar nuevos bugs o problemas de la versión a tiempo.
+    - **Última versión estable:** Es importante comprobar que funciona en la versión mas nueva para seguir dándole soporte a la aplicación y mantenerla actualizada y/o detectar nuevos bugs o problemas de la versión a tiempo.
 
-    - Última versión LTS (Long Term Support): Debido al soporte las versiones LTS son más utilizadas que la última versión estable, es importante testearla en la versión LTS más actualizada por las mismas razones que la última estable, pero además, porque probablemente sea la versión que mas gente utilice.
+    - **Última versión LTS (Long Term Support):** Debido al soporte las versiones LTS son más utilizadas que la última versión estable, es importante testearla en la versión LTS más actualizada por las mismas razones que la última estable, pero además, porque probablemente sea la versión que mas gente utilice.
 
-    - 14 versión local en mi sistema con la que se ha desarrollado hasta ahora (esta debería funcionar siempre)
+    - **14 versión local** en mi sistema con la que se ha desarrollado hasta ahora (esta debería funcionar siempre)
 
-    - 11 versión mínima de node, de este modo podemos ver si estamos incluyendo algo que haga que deje de funcionar en versiones más antiguas
+    - **11 versión mínima** de node, de este modo podemos ver si estamos incluyendo algo que haga que deje de funcionar en versiones más antiguas
 
     Se puede ver como se ha puesto en marcha travis en [los ejercicios del tema](https://github.com/bytevictor/EjerciciosIV/blob/master/H4/README.md)
 
