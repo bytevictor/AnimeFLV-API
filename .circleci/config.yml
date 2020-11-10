@@ -7,4 +7,3 @@ jobs:
     steps:
       - checkout
       - run: npm run test
-      
