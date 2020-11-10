@@ -1,9 +1,11 @@
 import Serie from '../src/serie';
 import { expect } from 'chai';
 
-var serie = new Serie('Fairy Tail', 'Fairy Tail cuenta la historia de un joven mago llamado Natsu en la búsqueda de su maestro y padre adoptivo Igneel que resulta ser un dragón.');
+var serie = new Serie('Fairy Tail', 'Fairy Tail cuenta la historia de un joven mago llamado Natsu en la búsqueda de su maestro y padre adoptivo Igneel que resulta ser un dragón.', 'https://www3.animeflv.net/anime/fairy-tail');
 serie.anadirCapitulo(1, 'https://www3.animeflv.net/ver/fairy-tail-1');
 serie.anadirCapitulo(2, 'https://www3.animeflv.net/ver/fairy-tail-2');
+
+serie.caratula = 'estoseriaelcodigodeunblob';
 
 describe('Test para clase Serie', function() {
     it('Se espera que devuelva el titulo de la serie', function() {
@@ -21,7 +23,12 @@ describe('Test para clase Serie', function() {
     it('Se espera que devuelva un error al buscar un capitulo inexistente', function(){ 
         expect(function(){serie.getLinkCapitulo(5);}).to.throw();
     });
-
+    it('Se espera que devuelva el link de la serie', function() {
+        expect(serie.link).equal('https://www3.animeflv.net/anime/fairy-tail');
+    });
+    it('Se espera que devuelva el blob de la imagen de la caratula', function() {
+        expect(serie.caratula).equal('estoseriaelcodigodeunblob');
+    });
     it('Se espera que devuelva la nueva descripción al cambiarla', function() {
         serie.descripcion = "El gremio de magos Fairy Tail es el más temido de todo el reino. Allí conviven los magos más duros, los más atrevidos… y los más destructivos. Lucy es una chica que quiere ingresar en Fairy Tail, para poder desarrollar sus poderes mágicos y cumplir los encargos que le puedan salir desde el gremio."
         expect(serie.descripcion).equal('El gremio de magos Fairy Tail es el más temido de todo el reino. Allí conviven los magos más duros, los más atrevidos… y los más destructivos. Lucy es una chica que quiere ingresar en Fairy Tail, para poder desarrollar sus poderes mágicos y cumplir los encargos que le puedan salir desde el gremio.');

@@ -4,9 +4,12 @@ import { expect } from 'chai';
 
 var usuario = new Usuario('Andy');
 
-var serie = new Serie('Fairy Tail', 'Fairy Tail cuenta la historia de un joven mago llamado Natsu en la búsqueda de su maestro y padre adoptivo Igneel que resulta ser un dragón.');
-var serie2 = new Serie('Dragon Ball Super', 'Después de derrotar a Majin Buu, la vida vuelve a ser tranquila una vez más. Goku vuelve a trabajar otra vez ya que Chichi le ordena que gane dinero, aunque él quiere seguir entrenando. Mientras, Goten, a punto de convertirse en cuñado de Videl, se embarca en un viaje con Trunks para encontrar un regalo para ella.');
-var serie3 = new Serie('Death Note', 'Light Yagami es un excelente estudiante japonés que ha tenido una vida aburrida. Esto cambia radicalmente cuando encuentra tirado en el suelo un cuaderno conocido como Death Note.');
+var serie  = new Serie('Fairy Tail', 'Fairy Tail cuenta la historia de un joven mago llamado Natsu en la búsqueda de su maestro y padre adoptivo Igneel que resulta ser un dragón.'
+                      , 'https://www3.animeflv.net/anime/fairy-tail');
+var serie2 = new Serie('Dragon Ball Super', 'Después de derrotar a Majin Buu, la vida vuelve a ser tranquila una vez más. Goku vuelve a trabajar otra vez ya que Chichi le ordena que gane dinero, aunque él quiere seguir entrenando. Mientras, Goten, a punto de convertirse en cuñado de Videl, se embarca en un viaje con Trunks para encontrar un regalo para ella.'
+                      , 'https://www3.animeflv.net/anime/dragon-ball-super');
+var serie3 = new Serie('Death Note', 'Light Yagami es un excelente estudiante japonés que ha tenido una vida aburrida. Esto cambia radicalmente cuando encuentra tirado en el suelo un cuaderno conocido como Death Note.'
+                      , 'https://www3.animeflv.net/anime/death-note');
 
 serie.anadirCapitulo(1, 'https://www3.animeflv.net/ver/fairy-tail-1');
 serie2.anadirCapitulo(1, 'https://www3.animeflv.net/ver/dragon-ball-super-1');
