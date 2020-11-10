@@ -29,13 +29,13 @@ export default class Usuario {
 
     //devuelve el index de la serie, si no encuentra devuelve -1
     private hasSerie(serie : Serie): number{
-            let i : number = 0;
-            for( let serie_listada of this._listaseries){
-                if( serie.titulo == serie_listada.titulo){
-                    return i;
-                }
-                i += 1;
+        let i : number = 0;
+        for( let serie_listada of this._listaseries){
+            if( serie.titulo == serie_listada.titulo){
+                return i;
             }
+            i += 1;
+        }
         return -1;
     }
 
@@ -66,4 +66,5 @@ export default class Usuario {
         }
     }
 
+    
 }
