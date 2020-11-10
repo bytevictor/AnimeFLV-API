@@ -1,5 +1,7 @@
 language: node_js
 node_js:
+  #última version
+  - lts/*
   #última version estable de node
   - "node"
   #versión local con la que se ha desarrollado
