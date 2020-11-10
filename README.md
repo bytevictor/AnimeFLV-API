@@ -25,9 +25,9 @@ Se han configurado dos sistemas de integración continua:
 
     Se ejecutan los tests en las siguientes versiones de node :
 
-    - Última versión: Es importante comprobar que funciona en la versión mas nueva para seguir dándole soporte a la aplicación y mantenerla actualizada y/o detectar nuevos bugs o problemas de la versión a tiempo.
+    - Última versión estable: Es importante comprobar que funciona en la versión mas nueva para seguir dándole soporte a la aplicación y mantenerla actualizada y/o detectar nuevos bugs o problemas de la versión a tiempo.
 
-    - Última versión estable: La última de todas las versiones al no ser estable puede no funcionar por algún problema, está versión si debería funcionar
+    - Última versión LTS (Long Term Support): Debido al soporte las versiones LTS son más utilizadas que la última versión estable, es importante testearla en la versión LTS más actualizada por las mismas razones que la última estable, pero además, porque probablemente sea la versión que mas gente utilice.
 
     - 14 versión local en mi sistema con la que se ha desarrollado hasta ahora (esta debería funcionar siempre)
 
