@@ -1,7 +1,11 @@
+import { obtenerVideofromLink } from './downloader'; 
 
 export default class Serie {
     private _titulo: string;
     private _descripcion: string;
+    private _caratula: string; //blob
+    //Link de la página principal de la serie
+    private _link: string;
     //Array con los links de capitulos que forman la serie
     private _capitulos = new Map<number, string>();
 
@@ -25,6 +29,15 @@ export default class Serie {
     get numero_capitulos(): number{
         return this._capitulos.size
     }
+    
+    set caratula(caratula: string){
+        this._caratula = caratula;
+    }
+
+    get caratula(): string{
+        return this.caratula;
+    }
+
 
     anadirCapitulo(numero_capitulo: number, link_capitulo: string ){
         if( ! this._capitulos.has(numero_capitulo) ){
@@ -51,7 +64,9 @@ export default class Serie {
     }
 
     descargarSerie(){
-        throw new Error("not Implemented");
+        for (let [numero, link] of this._capitulos) {
+            obtenerVideofromLink(link);
+        }
     }
 
 }
