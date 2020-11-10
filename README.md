@@ -23,6 +23,16 @@ Se han configurado dos sistemas de integración continua:
 - #### Travis:
     Se ha escogido Travis como primer sistema de integración continua por varias razones, es gratis, es sencillo, está bien integrado en github, configurarlo es fácil y además era usado y recomendado por el profesor.
 
+    Se ejecutan los tests en las siguientes versiones de node :
+
+    - Última versión: Es importante comprobar que funciona en la versión mas nueva para seguir dándole soporte a la aplicación y mantenerla actualizada y/o detectar nuevos bugs o problemas de la versión a tiempo.
+
+    - Última versión estable: La última de todas las versiones al no ser estable puede no funcionar por algún problema, está versión si debería funcionar
+
+    - 14 versión local en mi sistema con la que se ha desarrollado hasta ahora (esta debería funcionar siempre)
+
+    - 11 versión mínima de node, de este modo podemos ver si estamos incluyendo algo que haga que deje de funcionar en versiones más antiguas
+
     Se puede ver como se ha puesto en marcha travis en [los ejercicios del tema](https://github.com/bytevictor/EjerciciosIV/blob/master/H4/README.md)
 
 
