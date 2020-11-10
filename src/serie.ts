@@ -9,9 +9,10 @@ export default class Serie {
     //Array con los links de capitulos que forman la serie
     private _capitulos = new Map<number, string>();
 
-    constructor(titulo: string, descripcion: string){
+    constructor(titulo: string, descripcion: string, link: string){
         this._titulo = titulo;
         this._descripcion = descripcion;
+        this._link = link;
     }
 
     get titulo(): string{
@@ -29,13 +30,17 @@ export default class Serie {
     get numero_capitulos(): number{
         return this._capitulos.size
     }
+
+    get link(): string{
+        return this._link;
+    }
     
     set caratula(caratula: string){
         this._caratula = caratula;
     }
 
     get caratula(): string{
-        return this.caratula;
+        return this._caratula;
     }
 
 

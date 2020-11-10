@@ -57,7 +57,7 @@ export default class Usuario {
     }
 
     getSerie(titulo: string): Serie{
-        let serie = new Serie(titulo, "");
+        let serie = new Serie(titulo, "", "");
         let index_serie = this.hasSerie( serie );
         if( index_serie >= 0 ){
             return this._listaseries[index_serie];
