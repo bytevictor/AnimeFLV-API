@@ -5,8 +5,6 @@ jobs:
     docker:
       - image: bytevictor/animeflv-api
     steps:
-      - run: sudo mkdir /test
-      - run: cd /test
       - checkout
       - run: npm run test
       
