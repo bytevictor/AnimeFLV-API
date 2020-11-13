@@ -45,8 +45,7 @@ Se han configurado dos sistemas de integración continua:
     - [Cómo ejecutar una máquina de linux básica en circleci y ejecutar comandos](https://circleci.com/docs/2.0/examples-intro/#linux-with-machine)
     - [Cómo elegir y configurar una imagen para la máquina](https://circleci.com/docs/2.0/configuration-reference/#machine)
 
-
-    Primero se intentó ejecutar directamente con las opciones de docker que da CircleCI pero como en nuestro caso tenemos que ejecutar el docker con los argumentos para el volumen, al final se ha optado por ejecutar una máquina y dentro ejecutar el docker con los argumentos que queríamos, de este modo la configuración era mas sencilla, permitía mas posibilidades y en vez de coger una imagen ya buildeada rebuildeamos la imagen, lo que nos asegura que siempre trabajamos con la última versión de la imagen aunque DockerHub aún no se haya actualizado.
+    Descargamos nuestra imagen de Docker Hub que ya subimos anteriormente y la ejecutamos en CircleCi utilizando las funcionalidades para docker que nos facilita CircleCi, dentro de la propia imagen montamos nuestro repositorio y ejecutamos los tests.
 
     La configuración final puede verse en [el siguiente fichero](https://github.com/bytevictor/AnimeFLV-API/blob/master/.circleci/config.yml)
 
