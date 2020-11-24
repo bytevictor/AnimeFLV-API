@@ -359,3 +359,4 @@ MigrationBackup/
 
 coverage/
 .nyc_output/
+.vercel
