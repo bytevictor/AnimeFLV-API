@@ -16,6 +16,18 @@ El objetivo es automatizar las tareas anteriormente comentadas, en un principio 
  - Crear funciones que notifiquen la aparición de una nueva serie.
  - Crear funciones que faciliten la descarga automatizada de capítulos.
 
+## Sistemas serverless
+
+Se ha hecho uso de dos sistemas serverless para llevar a cabo el despliegue de algunas funciones del proyecto.
+
+La conexión de ambos sistemas con el repositorio se puede consultar [en la siguiente documentación](https://github.com/bytevictor/AnimeFLV-API/blob/master/docs/sistemas_serverless/README.md)
+
+- #### Versel
+
+
+
+- #### Netlify
+
 ## Integración Continua
 
 Se han configurado dos sistemas de integración continua:
