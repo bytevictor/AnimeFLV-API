@@ -24,9 +24,19 @@ La conexión de ambos sistemas con el repositorio se puede consultar [en la sigu
 
 - #### Versel
 
+    Después de conectar el sistema con nuestro repositorio hemos partido del siguiente [Código de ejemplo](https://vercel.com/docs/serverless-functions/supported-languages#using-typescript)
+    Para comprobar que funciona, el test inicial está funcionando [AQUÍ](https://anime-flv-api.bytevictor.vercel.app/api/hola)
+
+    Tras comprobar el funcionamiento de Vercel hemos desplegado una función que sirve para consultar si el sistema tiene una serie, si la tiene nos devuelve toda la información relativa a la misma, sinopsis, carátula, link y todos los links a los capitulos de la serie.
+
+    [El código puede verse AQUÍ](https://github.com/bytevictor/AnimeFLV-API/blob/master/src/api/consultor.ts)
+
+    [La función puede probarse AQUÍ](https://anime-flv-api.vercel.app/api/consultor?serie=Boku%20no%20Hero%20Academia)
+
+- #### Netlify [![Netlify Status](https://api.netlify.com/api/v1/badges/1d815aa7-a978-4f7d-a33f-849b1d7559f9/deploy-status)](https://app.netlify.com/sites/animeflv-api/deploys)
 
 
-- #### Netlify
+
 
 ## Integración Continua
 
