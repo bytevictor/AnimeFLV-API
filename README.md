@@ -33,7 +33,7 @@ La conexión de ambos sistemas con el repositorio se puede consultar [en la sigu
 
     [La función puede probarse AQUÍ](https://anime-flv-api.vercel.app/api/consultor?serie=Boku%20no%20Hero%20Academia)
 
-- #### Netlify [![Netlify Status](https://api.netlify.com/api/v1/badges/1d815aa7-a978-4f7d-a33f-849b1d7559f9/deploy-status)](https://app.netlify.com/sites/animeflv-api/deploys)
+- #### Netlify [![Netlify Status](https://api.netlify.com/api/v1/badges/01287280-7d0a-4910-9251-ebfbf2e92936/deploy-status)](https://app.netlify.com/sites/animeflv-api/deploys)
 
 
 ## Documentos
