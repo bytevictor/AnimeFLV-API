@@ -42,9 +42,9 @@ function handler(event, context) {
     return __awaiter(this, void 0, void 0, function () {
         var respuesta, i;
         return __generator(this, function (_a) {
-            respuesta = {};
+            respuesta = { 'titulo': [] };
             for (i in datos.series) {
-                respuesta['titulo'] = datos.series[i]['titulo'];
+                respuesta['titulo'].push(datos.series[i]['titulo']);
             }
             if (Object.keys(respuesta).length === 0) {
                 respuesta['error'] = "No hay series";
