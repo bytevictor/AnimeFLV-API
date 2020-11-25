@@ -7,10 +7,10 @@ export async function handler (
   context: Context
 ) {
 
-  var respuesta = {}
+  var respuesta = {'titulo': []}
 
   for( let i in datos.series){
-    respuesta['titulo'] = datos.series[i]['titulo'];
+    respuesta['titulo'].push(datos.series[i]['titulo']);
   }
 
   if(Object.keys(respuesta).length === 0){
