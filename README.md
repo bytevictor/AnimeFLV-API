@@ -42,7 +42,7 @@ La conexión de ambos sistemas con el repositorio se puede consultar [en la sigu
     
     Hemos hecho una prueba de despliegue con este método:
 
-    - [Despligue Netlify Holamundo](https://animeflv-api.netlify.app/.netlify/functions/hola)
+    - [Despligue Netlify Holamundo](https://animeflv-api.netlify.app/.netlify/functions/holatype?msg=Saludo%20al%20mundo)
     - [Código Typescript](https://github.com/bytevictor/AnimeFLV-API/blob/master/functions/holatype.ts)
     - [Transcripción a Javascript](https://github.com/bytevictor/AnimeFLV-API/blob/master/functions/holatype.js)
 
