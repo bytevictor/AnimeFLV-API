@@ -44,7 +44,7 @@ app.post( "/anadirserie/:nombreserie", ( req, res ) => {
             usuario_server.anadirSerie(nueva_serie);
             res.send( {"OK": nombreserie } );
         } catch (error){
-            res.status(400).send( error.message )
+            res.status(409).send( error.message )
         }
         
     } else {
@@ -55,12 +55,40 @@ app.post( "/anadirserie/:nombreserie", ( req, res ) => {
 
 //Borra la serie
 app.delete( "/borrarserie/:nombreserie", ( req, res ) => {
-    res.send( "Hello world!" );
+    let nombreserie = req.params.nombreserie
+
+    //Vemos si esta vacio
+    if( nombreserie ){
+        let serie_borrar = new Serie( nombreserie, "", "");
+
+        try{
+            usuario_server.borrarSerie(serie_borrar);
+            res.send( {"DELETED": nombreserie } );
+        } catch (error){
+            res.status(409).send( error.message )
+        }
+        
+    } else {
+        res.status(400).send("Parametros Invalidos")
+    }
 } );
 
 //Devuelve una serie con toda la informacion asociada
 app.get( "/getserie/:nombreserie", ( req, res ) => {
-    res.send( "Hello world!" );
+    let nombreserie = req.params.nombreserie
+
+    //Vemos si esta vacio
+    if( nombreserie ){
+        try{
+            let serie = usuario_server.getSerie(nombreserie);
+            res.send( JSON.stringify(serie) );
+        } catch (error){
+            res.status(409).send( error.message )
+        }
+        
+    } else {
+        res.status(400).send("Parametros Invalidos")
+    }
 } );
 
 app.get( "/holamundo", ( req, res ) => {
