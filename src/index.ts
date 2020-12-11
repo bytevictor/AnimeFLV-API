@@ -4,6 +4,11 @@ import Serie from './serie';
 
 const app = express();
 const port = 8080; // default port to listen
+ 
+//PARA LOS PARAMETROS DEL POST
+var bodyParser = require('body-parser');
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 //Creamos un usuario
 let usuario_server = new Usuario('server', 'infraestructura virtual')
@@ -26,15 +31,22 @@ app.get( "/getcapitulo/:nombreserie/:numerocapitulo", ( req, res ) => {
 //Construye una serie con los datos y la añade
 //La descripcion y el link se obtienen de los parametros post
 app.post( "/anadirserie/:nombreserie", ( req, res ) => {
+
     let nombreserie = req.params.nombreserie
     let descripcion = req.body.descripcion;
     let link = req.body.link;
 
-    let nueva_serie = new Serie( nombreserie, descripcion, link);
+    //Vemos si estan vacios
+    if( nombreserie && descripcion && link ){
+        let nueva_serie = new Serie( nombreserie, descripcion, link);
 
-    usuario_server.anadirSerie(nueva_serie);
-
-    res.send( "Serie " + nombreserie + " añadida con éxito" );
+        usuario_server.anadirSerie(nueva_serie);
+    
+        res.send( "Serie " + nombreserie + " añadida con éxito" );
+    } else {
+        res.status(400).send("Parametros Invalidos")
+    }
+    
 } );
 
 //Borra la serie
