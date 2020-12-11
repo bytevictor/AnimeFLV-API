@@ -40,9 +40,13 @@ app.post( "/anadirserie/:nombreserie", ( req, res ) => {
     if( nombreserie && descripcion && link ){
         let nueva_serie = new Serie( nombreserie, descripcion, link);
 
-        usuario_server.anadirSerie(nueva_serie);
-    
-        res.send( "Serie " + nombreserie + " añadida con éxito" );
+        try{
+            usuario_server.anadirSerie(nueva_serie);
+            res.send( {"OK": nombreserie } );
+        } catch (error){
+            res.status(400).send( error.message )
+        }
+        
     } else {
         res.status(400).send("Parametros Invalidos")
     }
