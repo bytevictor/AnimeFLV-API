@@ -14,8 +14,26 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 let usuario_server = new Usuario('server', 'infraestructura virtual')
 
 //Añade un capitulo a la serie 
-app.put( "/anadircapitulo/:nombreserie/:linkcapitulo", ( req, res ) => {
-    res.send( "Hello world!" );
+app.put( "/anadircapitulo/:nombreserie/:numcapitulo/:linkcapitulo", ( req, res ) => {
+    let nombreserie = req.params.nombreserie
+    let numcap = req.params.numcapitulo
+    let link = req.params.linkcapitulo
+
+    //Vemos si esta vacio y si es un numero
+    if( nombreserie && link && !isNaN(Number(numcap)) ){
+        try{
+            let serie = usuario_server.getSerie(nombreserie);
+
+            serie.anadirCapitulo(Number(numcap),link);
+
+            res.send( {"OK": numcap,link } );
+        } catch (error){
+            res.status(409).send( error.message )
+        }
+        
+    } else {
+        res.status(400).send("Parametros Invalidos")
+    }
 } );
 
 //Borra el capitulo numero de la serie
