@@ -6,6 +6,7 @@
     "devDependencies": {
         "@types/aws-lambda": "^8.10.64",
         "@types/chai": "^4.2.13",
+        "@types/express": "^4.17.9",
         "@types/mocha": "^8.0.3",
         "@vercel/node": "^1.8.5",
         "chai": "^4.2.0",
@@ -16,10 +17,16 @@
     },
     "scripts": {
         "test": "mocha -r ts-node/register tests/**/*.spec.ts",
-        "coverage": "nyc --reporter=lcov --reporter=text npm run test"
+        "coverage": "nyc --reporter=lcov --reporter=text npm run test",
+        "cleantsc": "rm tests/*.js src/api/*.js",
+        "cleansrc": "rm src/*.js"
     },
     "dependencies": {
         "@types/node": "^14.11.8",
-        "docker": "^1.0.0"
+        "docker": "^1.0.0",
+        "etcd3": "^1.1.0",
+        "etcd3-ts": "^1.4.1",
+        "express": "^4.17.1",
+        "node-etcd": "^7.0.0"
     }
 }
