@@ -16,6 +16,57 @@ El objetivo es automatizar las tareas anteriormente comentadas, en un principio 
  - Crear funciones que notifiquen la aparición de una nueva serie.
  - Crear funciones que faciliten la descarga automatizada de capítulos.
 
+## Microservicio
+
+Hemos elegido express.js como framework para el microservicio, esta decisión se debe a que era un framework con mucha documentación para el lenguaje utilizado (typescript) y que cuenta con muchas facilidades pero a su vez es bastante versatil lo que lo hace un framework adecuado para el objetivo a realizar, además cuenta con todos los métodos necesarios para nuestra API.
+
+[Fichero que implementa el microservicio index.ts](https://github.com/bytevictor/AnimeFLV-API/blob/master/src/index.ts).
+
+En este fichero hemos empleado express.js e implementado varias rutas para las distintas funcionalidades de la API.
+Siempre que una petición es correcta devuelve datos en formato JSON, ya sea confirmando por ejemplo que los datos introducidos son correctos en el caso de las peticiones PUT, POST y DELETE (y además mostrando esos datos en JSON) o devolviendo los datos solicitados en formato JSON en el caso de las peticiones de tipo GET.
+Cuando la petición es incorrecta devuelve un mensaje de texto plano con la razón del error, además de devolver el código HTTP asociado al error.
+
+Las rutas disponibles son las siguientes:
+
+**POST**
+
+Añade una nueva serie al microservicio (los parametros descripcion y link se obtienen por )
+> localhost:8080/anadirserie/:nombreserie
+
+**GET** 
+
+Devuelve una serie con toda su información asociada
+
+> localhost:8080/getserie/:nombreserie
+
+**GET**
+
+Devuelve el link de un capítulo de una serie
+
+> localhost:8080/getcapitulo/:nombreserie/:numcapitulo
+
+**PUT**
+
+Añade un capítulo a una serie 
+
+> localhost:8080/anadircapitulo/:nombreserie/:numcapitulo/:linkcapitulo
+
+**DELETE**
+
+Borra un capítulo de una serie
+
+> localhost:8080/borrarcapitulo/:nombreserie/:numcapitulo
+
+**DELETE**
+
+Borra una serie del microservicio
+
+> localhost:8080/borrarserie/:nombreserie
+
+Todas estas funcionalidades avanzan significativamente concretamente DOS de las historias de usuario, la HU01 y HU03, obtención de datos de series y capítulos de las mismas y la posibilidad de descargar series y capítulos, la HU01 está prácticamente implementada con este microservicio aunque aún puede mejorarse y esta funcionalidad facilita mucho la posibilidad de descargar capítulos ya que se pueden obtener fácilmente listas con los links a los mismos, en un futuro podría implementarse una funcionalidad que permita a partir de esos links que proporciona la API la descarga automatizada de capítulos.
+
+### Middleware
+
 ## Sistemas serverless
 
 Se ha hecho uso de dos sistemas serverless para llevar a cabo el despliegue de algunas funciones del proyecto.
