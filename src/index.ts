@@ -183,8 +183,6 @@ app.get( "/getserie/:nombreserie", ( req, res ) => {
 
             serie_json['_capitulos'] = JSON.stringify(Object.fromEntries(serie.map_capitulos));
 
-            console.log( serie_json );
-
             res.send( JSON.stringify(serie_json));
         } catch (error){
             res.status(409).send( error.message )
