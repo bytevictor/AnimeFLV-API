@@ -38,12 +38,12 @@ let demoLogger = (req, res, next) => {
     let log = `[${hora_bonita}] ${method}:${url} ${status}`;
     console.log(log);
     //ruta para los logs
-    let dir_logs = './log';
+    //let dir_logs = './log'
     //si no existe la ruta creala
-    if (!fs.existsSync(dir_logs)) {
-        fs.mkdirSync(dir_logs);
-    }
-    fs.appendFile("./log/logs.txt", log + "\n", err => {
+    //if (!fs.existsSync(dir_logs)){
+    //    fs.mkdirSync(dir_logs);
+    //}
+    fs.appendFile("./logs.txt", log + "\n", err => {
         if (err) {
             console.log(err);
         }
@@ -159,7 +159,6 @@ app.get("/getserie/:nombreserie", (req, res) => {
             //Al tener un map tenemos que hacer esto para poder mostrarlo ya que stringify no es capaz por si solo
             let serie_json = JSON.parse(JSON.stringify(serie));
             serie_json['_capitulos'] = JSON.stringify(Object.fromEntries(serie.map_capitulos));
-            console.log(serie_json);
             res.send(JSON.stringify(serie_json));
         }
         catch (error) {

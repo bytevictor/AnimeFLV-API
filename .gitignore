@@ -13,7 +13,7 @@ tests/*.js
 !src/index.js
 node_modules/
 functions/*.js
-log
+logs.txt
 
 #############################################        FIN     #############################################
 

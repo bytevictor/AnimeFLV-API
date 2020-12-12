@@ -39,13 +39,13 @@ let demoLogger = (req, res, next) => {
     console.log(log);
 
     //ruta para los logs
-    let dir_logs = './log'
+    //let dir_logs = './log'
     //si no existe la ruta creala
-    if (!fs.existsSync(dir_logs)){
-        fs.mkdirSync(dir_logs);
-    }
+    //if (!fs.existsSync(dir_logs)){
+    //    fs.mkdirSync(dir_logs);
+    //}
 
-    fs.appendFile("./log/logs.txt", log + "\n", err => {
+    fs.appendFile("./logs.txt", log + "\n", err => {
         if (err) {
           console.log(err);
         }
