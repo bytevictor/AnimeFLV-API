@@ -23,7 +23,7 @@ Hemos elegido express.js como framework para el microservicio, esta decisión se
 [Fichero que implementa el microservicio index.ts](https://github.com/bytevictor/AnimeFLV-API/blob/master/src/index.ts).
 
 En este fichero hemos empleado express.js e implementado varias rutas para las distintas funcionalidades de la API.
-Siempre que una petición es correcta devuelve datos en formato JSON, ya sea confirmando por ejemplo que los datos introducidos son correctos en el caso de las peticiones PUT, POST y DELETE (y además mostrando esos datos en JSON) o devolviendo los datos solicitados en formato JSON en el caso de las peticiones de tipo GET.
+Siempre que una petición es correcta devuelve datos en formato JSON, ya sea confirmando, por ejemplo, que los datos introducidos son correctos en el caso de las peticiones PUT, POST y DELETE (y además mostrando esos datos en JSON) o devolviendo los datos solicitados en formato JSON en el caso de las peticiones de tipo GET.
 Cuando la petición es incorrecta devuelve un mensaje de texto plano con la razón del error, además de devolver el código HTTP asociado al error. 
 
 Las rutas disponibles son las siguientes:
@@ -69,7 +69,7 @@ Todas estas funcionalidades avanzan significativamente concretamente DOS de las 
 
 Además de las funcionalidades del microservicio se ha implementado un middleware que almacena todas las peticiones que recibe el microservicio en un archivo log.txt.
 Al ser un middleware es capaz de acceder a la instancia de express y ejecutar su código cada vez que esta recibe una petición de cualquier tipo.
-Este middleware crea una carpeta en la raiz del proyecto llamada log donde almacena el archivo logs.txt, crea una carpeta ya que es la forma común de almacenar logs ya que suelen ser ficheros de gran tamaño y puede necesitarse crear varios cuando uno alcanza demasiado tamaño, aunque en este caso todo aún se almacena en el mismo fichero.
+Este middleware crea una carpeta en la raiz del proyecto llamada log donde almacena el archivo logs.txt, crea una carpeta porque es la forma común de almacenar logs ya que suelen ser ficheros de gran tamaño y puede necesitarse crear varios cuando uno alcanza demasiado tamaño, aunque en este caso todo aún se almacena en el mismo fichero.
 Cada entrada del log almacena fecha, hora, metodo de la petición, url y el código de estado que devuelve.
 
 Ejemplo entrada de log:
@@ -80,43 +80,10 @@ El código del middleware se ha implementado en el mismo fichero que el resto de
 
 [Código implementación del sistema de logs (middleware) Lineas 19-58](https://github.com/bytevictor/AnimeFLV-API/blob/master/src/index.ts)
 
-## Sistemas serverless
-
-Se ha hecho uso de dos sistemas serverless para llevar a cabo el despliegue de algunas funciones del proyecto.
-
-La conexión de ambos sistemas con el repositorio se puede consultar [en la siguiente documentación](https://github.com/bytevictor/AnimeFLV-API/blob/master/docs/sistemas_serverless/README.md)
-
-- #### Vercel
-
-    Después de conectar el sistema con nuestro repositorio hemos partido del siguiente [Código de ejemplo](https://vercel.com/docs/serverless-functions/supported-languages#using-typescript)
-    Para comprobar que funciona, el test inicial está funcionando [AQUÍ](https://anime-flv-api.bytevictor.vercel.app/api/hola)
-
-    Tras comprobar el funcionamiento de Vercel hemos desplegado una función que sirve para consultar si el sistema tiene una serie, si la tiene nos devuelve toda la información relativa a la misma, sinopsis, carátula, link y todos los links a los capitulos de la serie.
-
-    [El código puede verse AQUÍ](https://github.com/bytevictor/AnimeFLV-API/blob/master/src/api/consultor.ts)
-
-    [La función puede probarse AQUÍ](https://anime-flv-api.vercel.app/api/consultor?serie=Boku%20no%20Hero%20Academia)
-
-- #### Netlify [![Netlify Status](https://api.netlify.com/api/v1/badges/01287280-7d0a-4910-9251-ebfbf2e92936/deploy-status)](https://app.netlify.com/sites/animeflv-api/deploys)
-
-    Al igual que con Vercel, tras conectar el sistema con nuestro repositorio hemos partido de la documentación de Netlify para desplegar una función.
-
-    En este caso nos encontramos con el problema de que netlify no admite Typescript, pero afortunadamente podemos traducir Typescript a Javascript empleando un transcriptor.
-    > tsc 
-    
-    Hemos hecho una prueba de despliegue con este método:
-
-    - [Despligue Netlify Holamundo](https://animeflv-api.netlify.app/.netlify/functions/holatype?msg=Saludo%20al%20mundo)
-    - [Código Typescript](https://github.com/bytevictor/AnimeFLV-API/blob/master/functions/holatype.ts)
-    - [Transcripción a Javascript](https://github.com/bytevictor/AnimeFLV-API/blob/master/functions/holatype.js)
-
-    Tras ver que funciona correctamente, desplegamos una nueva función con este mismo método, diferente a la que hemos desplegado en Vercel, en este caso la intención es que nos devuelva una lista de las series que tiene el sistema.
-
-    - [Despligue Netlify BuscaSeries](https://animeflv-api.netlify.app/.netlify/functions/buscaseries)
-    - [Código Typescript](https://github.com/bytevictor/AnimeFLV-API/blob/master/functions/buscaseries.ts)
-    - [Transcripción a Javascript](https://github.com/bytevictor/AnimeFLV-API/blob/master/functions/buscaseries.js)
 
 ## Documentos
+
+- [Documentación de los Sistemas Serverless]()
 
 - [Documentación de la Integración Continua](https://github.com/ByteVictor/AnimeFLV-API/blob/master/docs/integracioncontinua/ci.md)
 
