@@ -4,6 +4,9 @@ import Serie from './serie';
 
 const app = express();
 const port = 8080; // default port to listen
+
+//Para abrir ficheros para los logs
+const fs = require('fs')
  
 //PARA LOS PARAMETROS DEL POST
 var bodyParser = require('body-parser');
@@ -12,6 +15,69 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 //Creamos un usuario
 let usuario_server = new Usuario('server', 'infraestructura virtual')
+
+//LOGGER MIDDLEWARE
+let demoLogger = (req, res, next) => {
+    let hora = new Date();
+    let hora_bonita =
+      hora.getFullYear() +
+      "-" +
+      (hora.getMonth() + 1) +
+      "-" +
+      hora.getDate() +
+      " " +
+      hora.getHours() +
+      ":" +
+      hora.getMinutes() +
+      ":" +
+      hora.getSeconds();
+    let method = req.method;
+    let url = req.url;
+    let status = res.statusCode;
+
+    let log = `[${hora_bonita}] ${method}:${url} ${status}`;
+    console.log(log);
+
+    //ruta para los logs
+    let dir_logs = './log'
+    //si no existe la ruta creala
+    if (!fs.existsSync(dir_logs)){
+        fs.mkdirSync(dir_logs);
+    }
+
+    fs.appendFile("./log/logs.txt", log + "\n", err => {
+        if (err) {
+          console.log(err);
+        }
+    });
+
+    next();
+};
+
+//Le decimos a express que use la funcion middleware para crear logs
+app.use(demoLogger)
+
+//Esto sirve para poder mostrar el map con stringify, por defecto no lo hace
+function replacer(key, value) {
+    const originalObject = this[key];
+    if(originalObject instanceof Map) {
+      return {
+        dataType: 'Map',
+        value: Array.from(originalObject.entries()), // or with spread: value: [...originalObject]
+      };
+    } else {
+      return value;
+    }
+}
+
+function reviver(key, value) {
+    if(typeof value === 'object' && value !== null) {
+      if (value.dataType === 'Map') {
+        return new Map(value.value);
+      }
+    }
+    return value;
+}
 
 //Añade un capitulo a la serie 
 app.put( "/anadircapitulo/:nombreserie/:numcapitulo/:linkcapitulo", ( req, res ) => {
@@ -37,13 +103,47 @@ app.put( "/anadircapitulo/:nombreserie/:numcapitulo/:linkcapitulo", ( req, res )
 } );
 
 //Borra el capitulo numero de la serie
-app.delete( "/borrarcapitulo/:nombreserie/:numerocapitulo", ( req, res ) => {
-    res.send( "Hello world!" );
+app.delete( "/borrarcapitulo/:nombreserie/:numcapitulo", ( req, res ) => {
+    let nombreserie = req.params.nombreserie
+    let numcap = req.params.numcapitulo
+
+    //Vemos si esta vacio y si es un numero
+    if( nombreserie && !isNaN(Number(numcap)) ){
+        try{
+            let serie = usuario_server.getSerie(nombreserie);
+
+            serie.borrarCapitulo(Number(numcap));
+
+            res.send( {"DELETED": numcap } );
+        } catch (error){
+            res.status(409).send( error.message )
+        }
+        
+    } else {
+        res.status(400).send("Parametros Invalidos")
+    }
 } );
 
 //Devuelve el link del capitulo de la serie
-app.get( "/getcapitulo/:nombreserie/:numerocapitulo", ( req, res ) => {
-    res.send( "Hello world!" );
+app.get( "/getcapitulo/:nombreserie/:numcapitulo", ( req, res ) => {
+    let nombreserie = req.params.nombreserie
+    let numcap = req.params.numcapitulo
+
+    //Vemos si esta vacio y si es un numero
+    if( nombreserie && !isNaN(Number(numcap))){
+        try{
+            let serie = usuario_server.getSerie(nombreserie);
+            
+            let link = serie.getLinkCapitulo(Number(numcap));
+
+            res.send( {"numero":numcap,link} );
+        } catch (error){
+            res.status(409).send( error.message )
+        }
+        
+    } else {
+        res.status(400).send("Parametros Invalidos")
+    }
 } );
 
 //Construye una serie con los datos y la añade
@@ -99,7 +199,14 @@ app.get( "/getserie/:nombreserie", ( req, res ) => {
     if( nombreserie ){
         try{
             let serie = usuario_server.getSerie(nombreserie);
-            res.send( JSON.stringify(serie) );
+            //Al tener un map tenemos que hacer esto para poder mostrarlo ya que stringify no es capaz por si solo
+
+            const str = JSON.stringify(serie.map_capitulos, replacer);
+            const newValue = JSON.parse(str, reviver);
+
+            console.log( newValue );
+
+            res.send( JSON.stringify(serie));
         } catch (error){
             res.status(409).send( error.message )
         }
@@ -113,6 +220,9 @@ app.get( "/holamundo", ( req, res ) => {
     res.send( "Hello world!" );
 } );
 
-app.listen( port, () => {
+var apps = app.listen( port, () => {
     console.log( `server started at http://localhost:${ port }` );
 } );
+
+
+export { app }
