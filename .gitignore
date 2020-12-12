@@ -9,6 +9,7 @@
 src/*.js
 src/api/*.js
 tests/*.js
+!tests/index.spec.js
 node_modules/
 functions/*.js
 log

@@ -57,28 +57,6 @@ let demoLogger = (req, res, next) => {
 //Le decimos a express que use la funcion middleware para crear logs
 app.use(demoLogger)
 
-//Esto sirve para poder mostrar el map con stringify, por defecto no lo hace
-function replacer(key, value) {
-    const originalObject = this[key];
-    if(originalObject instanceof Map) {
-      return {
-        dataType: 'Map',
-        value: Array.from(originalObject.entries()), // or with spread: value: [...originalObject]
-      };
-    } else {
-      return value;
-    }
-}
-
-function reviver(key, value) {
-    if(typeof value === 'object' && value !== null) {
-      if (value.dataType === 'Map') {
-        return new Map(value.value);
-      }
-    }
-    return value;
-}
-
 //Añade un capitulo a la serie 
 app.put( "/anadircapitulo/:nombreserie/:numcapitulo/:linkcapitulo", ( req, res ) => {
     let nombreserie = req.params.nombreserie
@@ -201,12 +179,13 @@ app.get( "/getserie/:nombreserie", ( req, res ) => {
             let serie = usuario_server.getSerie(nombreserie);
             //Al tener un map tenemos que hacer esto para poder mostrarlo ya que stringify no es capaz por si solo
 
-            const str = JSON.stringify(serie.map_capitulos, replacer);
-            const newValue = JSON.parse(str, reviver);
+            let serie_json = JSON.parse(JSON.stringify(serie));
 
-            console.log( newValue );
+            serie_json['_capitulos'] = JSON.stringify(Object.fromEntries(serie.map_capitulos));
 
-            res.send( JSON.stringify(serie));
+            console.log( serie_json );
+
+            res.send( JSON.stringify(serie_json));
         } catch (error){
             res.status(409).send( error.message )
         }
@@ -226,3 +205,4 @@ var apps = app.listen( port, () => {
 
 
 export { app }
+export { apps }

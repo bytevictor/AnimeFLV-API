@@ -31,6 +31,10 @@ export default class Serie {
         return this._capitulos.size
     }
 
+    get map_capitulos(){
+        return this._capitulos    
+    }
+
     get link(): string{
         return this._link;
     }
