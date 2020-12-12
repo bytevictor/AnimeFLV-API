@@ -24,7 +24,7 @@ Hemos elegido express.js como framework para el microservicio, esta decisión se
 
 En este fichero hemos empleado express.js e implementado varias rutas para las distintas funcionalidades de la API.
 Siempre que una petición es correcta devuelve datos en formato JSON, ya sea confirmando por ejemplo que los datos introducidos son correctos en el caso de las peticiones PUT, POST y DELETE (y además mostrando esos datos en JSON) o devolviendo los datos solicitados en formato JSON en el caso de las peticiones de tipo GET.
-Cuando la petición es incorrecta devuelve un mensaje de texto plano con la razón del error, además de devolver el código HTTP asociado al error.
+Cuando la petición es incorrecta devuelve un mensaje de texto plano con la razón del error, además de devolver el código HTTP asociado al error. 
 
 Las rutas disponibles son las siguientes:
 
