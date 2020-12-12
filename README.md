@@ -80,6 +80,13 @@ El código del middleware se ha implementado en el mismo fichero que el resto de
 
 [Código implementación del sistema de logs (middleware) Lineas 19-58](https://github.com/bytevictor/AnimeFLV-API/blob/master/src/index.ts)
 
+### Tests
+
+Se han implementado tests para todas las rutas del microservicio, los cuales comprueban el correcto funcionamiento de este.
+
+Para mandar las peticiones al microservicio se ha empleado la biblioteca supertest, ya que había mucha documentación asociada a esta con express y además se puede usar una biblioteca de aserciones propia, una de las recomendadas era mocha/chai que es la misma que usamos en el resto de los tests, por tanto nos venía como anillo al dedo.
+
+[El código de los tests se puede comprobar AQUÍ](https://github.com/bytevictor/AnimeFLV-API/blob/master/tests/index.spec.js)
 
 ## Documentos
 
