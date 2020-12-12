@@ -10,6 +10,7 @@ src/*.js
 src/api/*.js
 tests/*.js
 !tests/index.spec.js
+!src/index.js
 node_modules/
 functions/*.js
 log
