@@ -6,8 +6,6 @@ node_js:
   - "node"
   #versión local con la que se ha desarrollado
   - "14"
-  #versión mínima de node
-  - "11"
 before_install:
   #Para igualar la versión de npm a la que se ha usado hasta ahora
   - npm i -g npm@6.14.8
