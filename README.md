@@ -67,6 +67,19 @@ Todas estas funcionalidades avanzan significativamente concretamente DOS de las 
 
 ### Middleware
 
+Además de las funcionalidades del microservicio se ha implementado un middleware que almacena todas las peticiones que recibe el microservicio en un archivo log.txt.
+Al ser un middleware es capaz de acceder a la instancia de express y ejecutar su código cada vez que esta recibe una petición de cualquier tipo.
+Este middleware crea una carpeta en la raiz del proyecto llamada log donde almacena el archivo logs.txt, crea una carpeta ya que es la forma común de almacenar logs ya que suelen ser ficheros de gran tamaño y puede necesitarse crear varios cuando uno alcanza demasiado tamaño, aunque en este caso todo aún se almacena en el mismo fichero.
+Cada entrada del log almacena fecha, hora, metodo de la petición, url y el código de estado que devuelve.
+
+Ejemplo entrada de log:
+
+> [2020-12-12 2:17:47] GET:/getserie/Fairy%20Tail 200
+
+El código del middleware se ha implementado en el mismo fichero que el resto del microservicio.
+
+[Código implementación del sistema de logs (middleware) Lineas 19-58](https://github.com/bytevictor/AnimeFLV-API/blob/master/src/index.ts)
+
 ## Sistemas serverless
 
 Se ha hecho uso de dos sistemas serverless para llevar a cabo el despliegue de algunas funciones del proyecto.
