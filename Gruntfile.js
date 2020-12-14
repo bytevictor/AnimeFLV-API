@@ -7,10 +7,11 @@ grunt.initConfig({
 
     run: {
         install: {
-            cmd: 'npm',
-            args: [
-              'install'
-            ]  
+            //No se necesita puesto que docker ya lo preinstala
+            //cmd: 'npm',
+            //args: [
+            //  'install'
+            //]  
         },
 
         build: {
