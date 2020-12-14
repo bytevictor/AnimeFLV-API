@@ -11,9 +11,10 @@ RUN npm ci
 
 USER root
 RUN rm package*.json
-RUN chown -R node /test
-USER node
 
 WORKDIR /test
+
+RUN chown -R node /test
+USER node
 
 CMD ["npm","run","test"]
