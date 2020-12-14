@@ -3,7 +3,7 @@ LABEL version "1.0" mantainer="ByteVictor"
 
 
 # Esto necesita privilegios superguay
-RUN npm i -g mocha ts-node supertest body-parser express typescript && mkdir /node_modules && chmod 755 /node_modules && chown node /node_modules
+RUN npm i -g mocha ts-node grunt-cli grunt-run supertest body-parser express typescript && mkdir /node_modules && chmod 755 /node_modules && chown node /node_modules
 
 USER node
 COPY --chown=node package*.json ./
