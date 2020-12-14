@@ -14,7 +14,7 @@ El objetivo es automatizar las tareas anteriormente comentadas, en un principio 
 
  - Crear funciones para marcar series y que se puedan recibir notificaciones cuando haya un nuevo capítulo.
  - Crear funciones que notifiquen la aparición de una nueva serie.
- - Crear funciones que faciliten la descarga automatizada de capítulos.
+ - Crear funciones que faciliten la descarga automatizada de capítulos. 
 
 ## Microservicio
 
