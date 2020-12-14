@@ -1,12 +1,12 @@
 var expect = require('chai').expect;
 
 const request = require('supertest');
-apps = require('../src/index.js');
+app = require('../src/index.js');
 
 
 describe( "Probando creacion de serie", function() {
     it('Deberia devolver un error porque faltan parametros', function (done) {
-      request(apps)
+      request(app)
        .post('/anadirserie/Fairy%20Tail')
        .send({descripcion:'Fairy tail es un gremio de magos'})
        //, link='https://www3.animeflv.net/anime/fairy-tail'})
@@ -18,7 +18,7 @@ describe( "Probando creacion de serie", function() {
        
     });
     it('Deberia devolver un json con la nueva serie', function (done) {
-        request(apps)
+        request(app)
          .post('/anadirserie/Fairy%20Tail')
          .send({descripcion:'Fairy tail es un gremio de magos', link:'https://www3.animeflv.net/anime/fairy-tail'})
          .expect(200)
@@ -33,7 +33,7 @@ describe( "Probando creacion de serie", function() {
 
 describe( "Probando put de capitulo", function() {
     it('Deberia devolver una confirmacion con la informacion del capitulo', function (done) {
-      request(apps)
+      request(app)
        .put('/anadircapitulo/Fairy%20Tail/1/animeflv.net.fairytail.1')
        .expect(200)
        .end(function(err, res) {
@@ -44,7 +44,7 @@ describe( "Probando put de capitulo", function() {
     });
 
     it('Deberia devolver una confirmacion con la informacion de otro capitulo', function (done) {
-        request(apps)
+        request(app)
          .put('/anadircapitulo/Fairy%20Tail/2/animeflv.net.fairytail.2')
          .expect(200)
          .end(function(err, res) {
@@ -57,7 +57,7 @@ describe( "Probando put de capitulo", function() {
 
 describe( "Probando delete de capitulo", function() {
     it('Deberia devolver un mensaje de confirmacion', function (done) {
-      request(apps)
+      request(app)
        .delete('/borrarcapitulo/Fairy%20Tail/2')
        .expect(200)
        .end(function(err, res) {
@@ -70,7 +70,7 @@ describe( "Probando delete de capitulo", function() {
 
 describe( "Probando get de serie", function() {
     it('Deberia devolver la informacion de la serie', function (done) {
-      request(apps)
+      request(app)
        .get('/getserie/Fairy%20Tail')
        .expect(200)
        .end(function(err, res) {
@@ -83,7 +83,7 @@ describe( "Probando get de serie", function() {
 
 describe( "Probando delete de serie", function() {
     it('Deberia devolver un mensaje de confirmacion', function (done) {
-      request(apps)
+      request(app)
        .delete('/borrarserie/Fairy%20Tail')
        .expect(200)
        .end(function(err, res) {
@@ -94,5 +94,3 @@ describe( "Probando delete de serie", function() {
     });
 });
 
-//cierra el server tras pasar los tests
-apps.close();

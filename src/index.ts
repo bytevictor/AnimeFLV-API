@@ -3,7 +3,7 @@ import express from "express"
 import Serie from './serie';
 
 const app = express();
-const port = 8080; // default port to listen
+
 
 //Para abrir ficheros para los logs
 const fs = require('fs')
@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 let usuario_server = new Usuario('server', 'infraestructura virtual')
 
 //LOGGER MIDDLEWARE
-let demoLogger = (req, res, next) => {
+let logger = (req, res, next) => {
     let hora = new Date();
     let hora_bonita =
       hora.getFullYear() +
@@ -55,7 +55,7 @@ let demoLogger = (req, res, next) => {
 };
 
 //Le decimos a express que use la funcion middleware para crear logs
-app.use(demoLogger)
+app.use(logger)
 
 //Añade un capitulo a la serie 
 app.put( "/anadircapitulo/:nombreserie/:numcapitulo/:linkcapitulo", ( req, res ) => {
@@ -197,10 +197,4 @@ app.get( "/holamundo", ( req, res ) => {
     res.send( "Hello world!" );
 } );
 
-var apps = app.listen( port, () => {
-    console.log( `server started at http://localhost:${ port }` );
-} );
-
-
 export { app }
-export { apps }
