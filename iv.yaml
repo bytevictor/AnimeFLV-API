@@ -3,6 +3,4 @@ lenguaje: TypeScript
 test: tests/serie.spec.ts
 taskfile: package.json
 URL: https://anime-flv-api.vercel.app/api/consultor?serie=Fairy%20Tail
-make:
-  - npm install
-  - npm run test
+make: grunt
