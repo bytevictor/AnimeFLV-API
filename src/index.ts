@@ -58,7 +58,7 @@ let logger = (req, res, next) => {
 app.use(logger)
 
 //Añade un capitulo a la serie 
-app.put( "/anadircapitulo/:nombreserie/:numcapitulo/:linkcapitulo", ( req, res ) => {
+app.put( "/capitulo/:nombreserie/:numcapitulo", ( req, res ) => {
     let nombreserie = req.params.nombreserie
     let numcap = req.params.numcapitulo
     let link = req.params.linkcapitulo
@@ -81,7 +81,7 @@ app.put( "/anadircapitulo/:nombreserie/:numcapitulo/:linkcapitulo", ( req, res )
 } );
 
 //Borra el capitulo numero de la serie
-app.delete( "/borrarcapitulo/:nombreserie/:numcapitulo", ( req, res ) => {
+app.delete( "/capitulo/:nombreserie/:numcapitulo", ( req, res ) => {
     let nombreserie = req.params.nombreserie
     let numcap = req.params.numcapitulo
 
@@ -103,7 +103,7 @@ app.delete( "/borrarcapitulo/:nombreserie/:numcapitulo", ( req, res ) => {
 } );
 
 //Devuelve el link del capitulo de la serie
-app.get( "/getcapitulo/:nombreserie/:numcapitulo", ( req, res ) => {
+app.get( "/capitulo/:nombreserie/:numcapitulo", ( req, res ) => {
     let nombreserie = req.params.nombreserie
     let numcap = req.params.numcapitulo
 
@@ -126,7 +126,7 @@ app.get( "/getcapitulo/:nombreserie/:numcapitulo", ( req, res ) => {
 
 //Construye una serie con los datos y la añade
 //La descripcion y el link se obtienen de los parametros post
-app.post( "/anadirserie/:nombreserie", ( req, res ) => {
+app.post( "/serie/:nombreserie", ( req, res ) => {
 
     let nombreserie = req.params.nombreserie
     let descripcion = req.body.descripcion;
@@ -150,7 +150,7 @@ app.post( "/anadirserie/:nombreserie", ( req, res ) => {
 } );
 
 //Borra la serie
-app.delete( "/borrarserie/:nombreserie", ( req, res ) => {
+app.delete( "/serie/:nombreserie", ( req, res ) => {
     let nombreserie = req.params.nombreserie
 
     //Vemos si esta vacio
@@ -170,7 +170,7 @@ app.delete( "/borrarserie/:nombreserie", ( req, res ) => {
 } );
 
 //Devuelve una serie con toda la informacion asociada
-app.get( "/getserie/:nombreserie", ( req, res ) => {
+app.get( "/serie/:nombreserie", ( req, res ) => {
     let nombreserie = req.params.nombreserie
 
     //Vemos si esta vacio
