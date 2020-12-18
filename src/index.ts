@@ -197,4 +197,5 @@ app.get( "/holamundo", ( req, res ) => {
     res.send( "Hello world!" );
 } );
 
-export { app }
+export default app;
+export {app};
