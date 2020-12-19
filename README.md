@@ -18,7 +18,10 @@ El objetivo es automatizar las tareas anteriormente comentadas, en un principio 
 
 ## Microservicio
 
-Hemos elegido express.js como framework para el microservicio, esta decisión se debe a que era un framework con mucha documentación para el lenguaje utilizado (typescript) y que cuenta con muchas facilidades pero a su vez es bastante versatil lo que lo hace un framework adecuado para el objetivo a realizar, además cuenta con todos los métodos necesarios para nuestra API.
+Hemos seleccionado express.js como framework para el microservicio, esta decisión se debe a que era un framework con mucha documentación para el lenguaje utilizado (typescript) y que cuenta con muchas facilidades pero a su vez es bastante versatil, además está diseñado para utilizarse con node.js que es el entorno que utilizamos en este proyecto, lo que lo hace un framework adecuado para el objetivo a realizar.
+
+También se barajó el uso de otros frameworks más centrados en Typescript, como Loopback, que se basa en express.js, pero cuenta con una documentación menos extensa y en general, no parece ser un framework tan sólido como express.
+Se puede ver más información sobre los pros y contras de loopback [en el siguiente enlace](https://www.voidcanvas.com/loopback-pros-and-cons/)
 
 [Fichero que implementa el microservicio index.ts](https://github.com/bytevictor/AnimeFLV-API/blob/master/src/index.ts).
 
