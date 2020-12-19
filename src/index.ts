@@ -58,10 +58,10 @@ let logger = (req, res, next) => {
 app.use(logger)
 
 //Añade un capitulo a la serie 
-app.put( "/capitulo/:nombreserie/:numcapitulo", ( req, res ) => {
+app.post( "/capitulo/:nombreserie/:numcapitulo", ( req, res ) => {
     let nombreserie = req.params.nombreserie
     let numcap = req.params.numcapitulo
-    let link = req.params.linkcapitulo
+    //let link = req.body.linkcapitulo
 
     //Vemos si esta vacio y si es un numero
     if( nombreserie && link && !isNaN(Number(numcap)) ){
@@ -72,7 +72,8 @@ app.put( "/capitulo/:nombreserie/:numcapitulo", ( req, res ) => {
 
             res.send( {"OK": numcap,link } );
         } catch (error){
-            res.status(409).send( error.message )
+            //Ya existe el capitulo
+            res.send( {"OK": numcap,link } );
         }
         
     } else {
@@ -94,7 +95,8 @@ app.delete( "/capitulo/:nombreserie/:numcapitulo", ( req, res ) => {
 
             res.send( {"DELETED": numcap } );
         } catch (error){
-            res.status(409).send( error.message )
+            //El capitulo ya estaba borrado
+            res.send( {"DELETED": numcap } );
         }
         
     } else {
@@ -116,6 +118,7 @@ app.get( "/capitulo/:nombreserie/:numcapitulo", ( req, res ) => {
 
             res.send( {"numero":numcap,link} );
         } catch (error){
+            //Not found
             res.status(409).send( error.message )
         }
         
@@ -140,7 +143,8 @@ app.post( "/serie/:nombreserie", ( req, res ) => {
             usuario_server.anadirSerie(nueva_serie);
             res.send( {"OK": nombreserie } );
         } catch (error){
-            res.status(409).send( error.message )
+            // Ya existe la serie
+            res.send( {"OK": nombreserie } );
         }
         
     } else {
@@ -161,7 +165,8 @@ app.delete( "/serie/:nombreserie", ( req, res ) => {
             usuario_server.borrarSerie(serie_borrar);
             res.send( {"DELETED": nombreserie } );
         } catch (error){
-            res.status(409).send( error.message )
+            //Ya estaba borrado
+            res.send( {"DELETED": nombreserie } );
         }
         
     } else {
@@ -185,6 +190,7 @@ app.get( "/serie/:nombreserie", ( req, res ) => {
 
             res.send( JSON.stringify(serie_json));
         } catch (error){
+            //Not found
             res.status(409).send( error.message )
         }
         
