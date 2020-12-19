@@ -61,7 +61,7 @@ app.use(logger)
 app.post( "/capitulo/:nombreserie/:numcapitulo", ( req, res ) => {
     let nombreserie = req.params.nombreserie
     let numcap = req.params.numcapitulo
-    //let link = req.body.linkcapitulo
+    let link = req.body.linkcapitulo
 
     //Vemos si esta vacio y si es un numero
     if( nombreserie && link && !isNaN(Number(numcap)) ){
@@ -130,7 +130,6 @@ app.get( "/capitulo/:nombreserie/:numcapitulo", ( req, res ) => {
 //Construye una serie con los datos y la añade
 //La descripcion y el link se obtienen de los parametros post
 app.post( "/serie/:nombreserie", ( req, res ) => {
-
     let nombreserie = req.params.nombreserie
     let descripcion = req.body.descripcion;
     let link = req.body.link;
