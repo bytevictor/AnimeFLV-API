@@ -119,7 +119,7 @@ app.get( "/capitulo/:nombreserie/:numcapitulo", ( req, res ) => {
             res.send( {"numero":numcap,link} );
         } catch (error){
             //Not found
-            res.status(409).send( error.message )
+            res.status(404).send( error.message )
         }
         
     } else {
@@ -190,7 +190,7 @@ app.get( "/serie/:nombreserie", ( req, res ) => {
             res.send( JSON.stringify(serie_json));
         } catch (error){
             //Not found
-            res.status(409).send( error.message )
+            res.status(404).send( error.message )
         }
         
     } else {

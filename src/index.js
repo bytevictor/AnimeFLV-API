@@ -52,10 +52,10 @@ let logger = (req, res, next) => {
 //Le decimos a express que use la funcion middleware para crear logs
 app.use(logger);
 //Añade un capitulo a la serie 
-app.put("/anadircapitulo/:nombreserie/:numcapitulo/:linkcapitulo", (req, res) => {
+app.post("/capitulo/:nombreserie/:numcapitulo", (req, res) => {
     let nombreserie = req.params.nombreserie;
     let numcap = req.params.numcapitulo;
-    let link = req.params.linkcapitulo;
+    let link = req.body.linkcapitulo;
     //Vemos si esta vacio y si es un numero
     if (nombreserie && link && !isNaN(Number(numcap))) {
         try {
@@ -64,7 +64,8 @@ app.put("/anadircapitulo/:nombreserie/:numcapitulo/:linkcapitulo", (req, res) =>
             res.send({ "OK": numcap, link });
         }
         catch (error) {
-            res.status(409).send(error.message);
+            //Ya existe el capitulo
+            res.send({ "OK": numcap, link });
         }
     }
     else {
@@ -72,7 +73,7 @@ app.put("/anadircapitulo/:nombreserie/:numcapitulo/:linkcapitulo", (req, res) =>
     }
 });
 //Borra el capitulo numero de la serie
-app.delete("/borrarcapitulo/:nombreserie/:numcapitulo", (req, res) => {
+app.delete("/capitulo/:nombreserie/:numcapitulo", (req, res) => {
     let nombreserie = req.params.nombreserie;
     let numcap = req.params.numcapitulo;
     //Vemos si esta vacio y si es un numero
@@ -83,7 +84,8 @@ app.delete("/borrarcapitulo/:nombreserie/:numcapitulo", (req, res) => {
             res.send({ "DELETED": numcap });
         }
         catch (error) {
-            res.status(409).send(error.message);
+            //El capitulo ya estaba borrado
+            res.send({ "DELETED": numcap });
         }
     }
     else {
@@ -91,7 +93,7 @@ app.delete("/borrarcapitulo/:nombreserie/:numcapitulo", (req, res) => {
     }
 });
 //Devuelve el link del capitulo de la serie
-app.get("/getcapitulo/:nombreserie/:numcapitulo", (req, res) => {
+app.get("/capitulo/:nombreserie/:numcapitulo", (req, res) => {
     let nombreserie = req.params.nombreserie;
     let numcap = req.params.numcapitulo;
     //Vemos si esta vacio y si es un numero
@@ -102,7 +104,8 @@ app.get("/getcapitulo/:nombreserie/:numcapitulo", (req, res) => {
             res.send({ "numero": numcap, link });
         }
         catch (error) {
-            res.status(409).send(error.message);
+            //Not found
+            res.status(404).send(error.message);
         }
     }
     else {
@@ -111,7 +114,7 @@ app.get("/getcapitulo/:nombreserie/:numcapitulo", (req, res) => {
 });
 //Construye una serie con los datos y la añade
 //La descripcion y el link se obtienen de los parametros post
-app.post("/anadirserie/:nombreserie", (req, res) => {
+app.post("/serie/:nombreserie", (req, res) => {
     let nombreserie = req.params.nombreserie;
     let descripcion = req.body.descripcion;
     let link = req.body.link;
@@ -123,7 +126,8 @@ app.post("/anadirserie/:nombreserie", (req, res) => {
             res.send({ "OK": nombreserie });
         }
         catch (error) {
-            res.status(409).send(error.message);
+            // Ya existe la serie
+            res.send({ "OK": nombreserie });
         }
     }
     else {
@@ -131,7 +135,7 @@ app.post("/anadirserie/:nombreserie", (req, res) => {
     }
 });
 //Borra la serie
-app.delete("/borrarserie/:nombreserie", (req, res) => {
+app.delete("/serie/:nombreserie", (req, res) => {
     let nombreserie = req.params.nombreserie;
     //Vemos si esta vacio
     if (nombreserie) {
@@ -141,7 +145,8 @@ app.delete("/borrarserie/:nombreserie", (req, res) => {
             res.send({ "DELETED": nombreserie });
         }
         catch (error) {
-            res.status(409).send(error.message);
+            //Ya estaba borrado
+            res.send({ "DELETED": nombreserie });
         }
     }
     else {
@@ -149,7 +154,7 @@ app.delete("/borrarserie/:nombreserie", (req, res) => {
     }
 });
 //Devuelve una serie con toda la informacion asociada
-app.get("/getserie/:nombreserie", (req, res) => {
+app.get("/serie/:nombreserie", (req, res) => {
     let nombreserie = req.params.nombreserie;
     //Vemos si esta vacio
     if (nombreserie) {
@@ -161,7 +166,8 @@ app.get("/getserie/:nombreserie", (req, res) => {
             res.send(JSON.stringify(serie_json));
         }
         catch (error) {
-            res.status(409).send(error.message);
+            //Not found
+            res.status(404).send(error.message);
         }
     }
     else {
