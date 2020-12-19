@@ -61,7 +61,7 @@ app.use(logger)
 app.post( "/capitulo/:nombreserie/:numcapitulo", ( req, res ) => {
     let nombreserie = req.params.nombreserie
     let numcap = req.params.numcapitulo
-    let link = req.body.linkcapitulo
+    let link = req.body.link
 
     //Vemos si esta vacio y si es un numero
     if( nombreserie && link && !isNaN(Number(numcap)) ){
