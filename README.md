@@ -26,45 +26,45 @@ Se puede ver más información sobre los pros y contras de loopback [en el sigui
 [Fichero que implementa el microservicio index.ts](https://github.com/bytevictor/AnimeFLV-API/blob/master/src/index.ts).
 
 En este fichero hemos empleado express.js e implementado varias rutas para las distintas funcionalidades de la API.
-Siempre que una petición es correcta devuelve datos en formato JSON, ya sea confirmando, por ejemplo, que los datos introducidos son correctos en el caso de las peticiones PUT, POST y DELETE (y además mostrando esos datos en JSON) o devolviendo los datos solicitados en formato JSON en el caso de las peticiones de tipo GET.
+Siempre que una petición es correcta devuelve datos en formato JSON, ya sea confirmando, por ejemplo, que los datos introducidos son correctos en el caso de las peticiones POST y DELETE (y además mostrando esos datos en JSON) o devolviendo los datos solicitados en formato JSON en el caso de las peticiones de tipo GET.
 Cuando la petición es incorrecta devuelve un mensaje de texto plano con la razón del error, además de devolver el código HTTP asociado al error. 
 
 Las rutas disponibles son las siguientes:
 
 **POST**
 
-Añade una nueva serie al microservicio (los parametros descripcion y link se obtienen por )
-> localhost:8080/anadirserie/:nombreserie
+Añade una nueva serie al microservicio (los parámetros **descripcion** y **link** se obtienen por el body de la petición.)
+> localhost:8080/serie/:nombreserie
 
 **GET** 
 
 Devuelve una serie con toda su información asociada
 
-> localhost:8080/getserie/:nombreserie
+> localhost:8080/serie/:nombreserie
 
 **GET**
 
 Devuelve el link de un capítulo de una serie
 
-> localhost:8080/getcapitulo/:nombreserie/:numcapitulo
+> localhost:8080/capitulo/:nombreserie/:numcapitulo
 
-**PUT**
+**POST**
 
-Añade un capítulo a una serie 
+Añade un capítulo a una serie (el parámetro **link** se obtiene por el body de la petición)
 
-> localhost:8080/anadircapitulo/:nombreserie/:numcapitulo/:linkcapitulo
+> localhost:8080/capitulo/:nombreserie/:numcapitulo
 
 **DELETE**
 
 Borra un capítulo de una serie
 
-> localhost:8080/borrarcapitulo/:nombreserie/:numcapitulo
+> localhost:8080/capitulo/:nombreserie/:numcapitulo
 
 **DELETE**
 
 Borra una serie del microservicio
 
-> localhost:8080/borrarserie/:nombreserie
+> localhost:8080/serie/:nombreserie
 
 Todas estas funcionalidades avanzan significativamente concretamente DOS de las historias de usuario, la HU01 y HU03, obtención de datos de series y capítulos de las mismas y la posibilidad de descargar series y capítulos, la HU01 está prácticamente implementada con este microservicio aunque aún puede mejorarse y esta funcionalidad facilita mucho la posibilidad de descargar capítulos ya que se pueden obtener fácilmente listas con los links a los mismos, en un futuro podría implementarse una funcionalidad que permita a partir de esos links que proporciona la API la descarga automatizada de capítulos.
 
