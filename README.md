@@ -158,6 +158,19 @@ Podemos ver como los tests pasan de forma satisfactoria:
 
 ![](docs/tests/ejemploejecucion_express.png)
 
+### **Docker para lanzar el microservicio**
+
+Se ha implementado una nueva imagen docker que lanza el microservicio.
+
+Se puede lanzar fácilmente con el comando:
+
+> grunt start
+
+Se construye el contenedor y se ejecuta el microservicio dentro, el Dockerfile de la imagen se puede consultar aquí:
+
+[Dockerfile para lanzar el microservicio](https://github.com/bytevictor/AnimeFLV-API/blob/master/src/Dockerfile)
+
+
 ## Documentos
 
 - [Documentación de los Sistemas Serverless]()

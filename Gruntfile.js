@@ -24,8 +24,14 @@ grunt.initConfig({
                 'run',
                 'test'
             ]
+        },
+
+        start: {
+            exec: 'docker build -t microservicio_animeflv -f src/Dockerfile . && docker run microservicio_animeflv'
         }
-    },
+    }
+                
+               
 
 });
 
@@ -35,5 +41,8 @@ grunt.registerTask('default', ['run:install']);
 grunt.registerTask('build',   ['run:build']);
 grunt.registerTask('install', ['run:install']);
 grunt.registerTask('test',    ['run:test']);
+
+//Lanza el microservicio
+grunt.registerTask('start', ['run:start']);
 
 }
