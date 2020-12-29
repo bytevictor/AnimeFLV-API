@@ -199,7 +199,7 @@ app.get( "/serie/:nombreserie", ( req, res ) => {
 } );
 
 app.get( "/holamundo", ( req, res ) => {
-    res.send( "Hello world!" );
+    res.send( "Hola Mundo!" );
 } );
 
 export default app;

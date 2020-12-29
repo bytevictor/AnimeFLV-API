@@ -175,8 +175,6 @@ app.get("/serie/:nombreserie", (req, res) => {
     }
 });
 app.get("/holamundo", (req, res) => {
-    res.send("Hello world!");
+    res.send("Hola Mundo!");
 });
-
-//tengo que añadir esto o no hay manera de que importe desde el test
-module.exports = app;
+exports.default = app;

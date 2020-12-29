@@ -23,6 +23,55 @@ Hemos seleccionado express.js como framework para el microservicio, esta decisi�
 También se barajó el uso de otros frameworks más centrados en Typescript, como Loopback, que se basa en express.js, pero cuenta con una documentación menos extensa y en general, no parece ser un framework tan sólido como express.
 Se puede ver más información sobre los pros y contras de loopback [en el siguiente enlace](https://www.voidcanvas.com/loopback-pros-and-cons/)
 
+Para asegurarnos de que hacemos una elección correcta, vamos a comparar el rendimiento de ambos frameworks simulando peticiones iguales que las de nuestro proyecto con loopback y con express.
+
+Primero vamos a hacer un test simple de la ruta GET con un hola mundo, ambos devuelven exactamente la misma cadena para que sea un test justo.
+
+Para ello vamos a emplear la herramienta de apache ab, esta herramienta sirve para mandar muchas peticiones de forma concurrente y devuelve todos los datos que necesitamos para juzgar cual es mas rápido.
+
+En ambos tests mandamos 10000 peticiones con una concurrencia de 500.
+
+**Express:**
+
+> ab -n10000 -c500 http://localhost:8080/holamundo
+
+![](docs/justificacion_framework/hola_express.png)
+
+**LoopBack:**
+
+> ab -n10000 -c500 http://localhost:3000/helloworld
+
+![](docs/justificacion_framework/hola_loopback.png)
+
+**Conclusión HolaMundo**
+
+Como podemos ver, ambos devuelven lo mismo (11 bytes), pero express es mucho significativamente más rápido que loopback en responder peticiones get que devuelven poca información (las cuales serán la mayoría de las peticiones que recibirá el microservicio).
+Esto probablemente se debe a la complejidad de loopback respecto a la de express. Express.js es un framework mas sencillo.
+
+**PRUEBAS POST**
+
+Ahora vamos a hacer pruebas con el segundo método que mas se utilizará en el microservicio, un POST, con 2 parámetros envíados por el body.
+En este caso no haremos uso de la herramienta ab de apache si no de la herramienta curl, en las peticiones POST, es la primera petición por norma general la que tiene un tiempo de respuesta mas largo aunque siempre devuelva lo mismo (comportamiento idempotente), esto se debe a que estamos mandando información al servidor para que la guarde (en nuestro microservicio) y esta solo se guarda una vez, ya que al recibir la misma petición ya tiene la información. Por esto, no tiene sentido mandar 10000 peticiones, basta con ver las diferencias entre la primera petición y algunas de las repetidas para ver la diferencia de rendimiento.
+
+**Express**
+
+![](docs/justificacion_framework/post_express.png)
+
+**Loopback**
+
+![](docs/justificacion_framework/post_loopback.png)
+
+Como vemos en el método post la primera vez que el servidor lo recibe tarda más que en el resto de los casos, esto se debe a que solo introduce los datos la primera vez que los recibe, el resto de ocasiones devuelve la misma respuesta ya que POST tiene un comportamiento idempotente pero tarda mucho menos ya que no tiene que añadir de nuevo los datos.
+
+En este caso express.js también gana la prueba de rendimiento, es mucho más rápido tanto la primera vez que recibe la petición como en el resto.
+
+### **Conclusión**
+
+Como vemos Express.js ha ganado en ambas pruebas de rendimiento para los métodos que vamos a utilizar en nuestro microservicio, además, como hemos comentado anteriormente, es un framework mucho mas sencillo que loopback, que cuenta con más documentación y que es más sencillo de implementar, nuestro microservicio es bastante simple así que no necesitamos más.
+Por ello si no solo es mas simple si no que además tiene un mejor rendimiento para el uso que le vamos a dar, express.js es la opción adecuada.
+
+### Microservicio con Express.js
+
 [Fichero que implementa el microservicio index.ts](https://github.com/bytevictor/AnimeFLV-API/blob/master/src/index.ts).
 
 En este fichero hemos empleado express.js e implementado varias rutas para las distintas funcionalidades de la API.
