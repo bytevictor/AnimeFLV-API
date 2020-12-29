@@ -146,6 +146,10 @@ Para mandar las peticiones al microservicio se ha empleado la biblioteca superte
 
 [El código de los tests se puede comprobar AQUÍ](https://github.com/bytevictor/AnimeFLV-API/blob/master/tests/index.spec.js)
 
+Podemos ver como los tests pasan de forma satisfactoria: 
+
+![](docs/tests/ejemploejecucion_express.png)
+
 ## Documentos
 
 - [Documentación de los Sistemas Serverless]()
