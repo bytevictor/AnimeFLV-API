@@ -177,4 +177,4 @@ app.get("/serie/:nombreserie", (req, res) => {
 app.get("/holamundo", (req, res) => {
     res.send("Hola Mundo!");
 });
-exports.default = app;
+module.exports = app;
