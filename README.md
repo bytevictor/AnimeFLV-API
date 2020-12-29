@@ -121,6 +121,14 @@ Todas estas funcionalidades avanzan significativamente concretamente DOS de las 
 
 La configuración del microservicio es distribuida, se intentan obtener los parámetros necesarios de una instancia etcd, si los parámetros no se pueden obtener, se asignan valores por defecto.
 
+En principio solo se obtiene por el momento el puerto para la aplicación de forma distribuida ya que no tenemos ningun otro parámetro significativo que podamos definir.
+
+Se intenta obtener de una instancia etcd con ip **127.0.0.1** y puerto **2379**
+
+El variable que se intenta obtener debe tener el nombre **port**
+
+Si no se encontrase se asigna el puerto **8080** por defecto.
+
 La configuración distribuida está implementada [en el siguiente fichero](https://github.com/bytevictor/AnimeFLV-API/blob/master/src/server.ts)
 
 ### Middleware
