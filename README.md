@@ -170,6 +170,9 @@ Se construye el contenedor y se ejecuta el microservicio dentro, el Dockerfile d
 
 [Dockerfile para lanzar el microservicio](https://github.com/bytevictor/AnimeFLV-API/blob/master/src/Dockerfile)
 
+Aquí se puede ver un ejemplo del docker funcionando tras ejecutar **grunt start**
+
+![](docs/tests/microservicio_docker.png)
 
 ## Documentos
 
