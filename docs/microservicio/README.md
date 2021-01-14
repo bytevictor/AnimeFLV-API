@@ -17,13 +17,13 @@ En ambos tests mandamos 10000 peticiones con una concurrencia de 500.
 
 > ab -n10000 -c500 http://localhost:8080/holamundo
 
-![](docs/justificacion_framework/hola_express.png)
+![](../justificacion_framework/hola_express.png)
 
 **LoopBack:**
 
 > ab -n10000 -c500 http://localhost:3000/helloworld
 
-![](docs/justificacion_framework/hola_loopback.png)
+![](../justificacion_framework/hola_loopback.png)
 
 **Conclusión HolaMundo**
 
@@ -37,11 +37,11 @@ En este caso no haremos uso de la herramienta ab de apache si no de la herramien
 
 **Express**
 
-![](docs/justificacion_framework/post_express.png)
+![](../justificacion_framework/post_express.png)
 
 **Loopback**
 
-![](docs/justificacion_framework/post_loopback.png)
+![](../justificacion_framework/post_loopback.png)
 
 Como vemos en el método post la primera vez que el servidor lo recibe tarda más que en el resto de los casos, esto se debe a que solo introduce los datos la primera vez que los recibe, el resto de ocasiones devuelve la misma respuesta ya que POST tiene un comportamiento idempotente pero tarda mucho menos ya que no tiene que añadir de nuevo los datos.
 
@@ -138,7 +138,7 @@ Para mandar las peticiones al microservicio se ha empleado la biblioteca superte
 
 Podemos ver como los tests pasan de forma satisfactoria: 
 
-![](docs/tests/ejemploejecucion_express.png)
+![](../tests/ejemploejecucion_express.png)
 
 ### **Docker para lanzar el microservicio**
 
@@ -154,4 +154,4 @@ Se construye el contenedor y se ejecuta el microservicio dentro, el Dockerfile d
 
 Aquí se puede ver un ejemplo del docker funcionando tras ejecutar **grunt start**
 
-![](docs/tests/microservicio_docker.png)
+![](../tests/microservicio_docker.png)
