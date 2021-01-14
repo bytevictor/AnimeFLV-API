@@ -15,7 +15,7 @@ grunt.initConfig({
         },
 
         build: {
-            
+        
         },
 
         test: {
@@ -24,6 +24,15 @@ grunt.initConfig({
                 'run',
                 'test'
             ]
+        },
+
+        transpile: {
+            cmd: 'tsc'
+        },
+
+        launch: {
+            cmd: 'node',
+            args: ['src/server.js']
         },
 
         start: {
@@ -42,7 +51,10 @@ grunt.registerTask('build',   ['run:build']);
 grunt.registerTask('install', ['run:install']);
 grunt.registerTask('test',    ['run:test']);
 
-//Lanza el microservicio
+//Lanza el microservicio en un docker
 grunt.registerTask('start', ['run:start']);
+
+//Despliegua el microservicio en local 
+grunt.registerTask('launch', ['run:transpile', 'run:launch'])
 
 }
