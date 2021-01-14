@@ -202,5 +202,9 @@ app.get( "/holamundo", ( req, res ) => {
     res.send( "Hola Mundo!" );
 } );
 
+app.get( "/status", (req, res ) => {
+    res.send( "{ status: \"OK\" }" );
+});
+
 export default app;
 export {app};
