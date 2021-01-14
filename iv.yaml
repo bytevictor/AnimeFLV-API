@@ -4,3 +4,11 @@ test: tests/serie.spec.ts
 taskfile: package.json
 URL: https://anime-flv-api.vercel.app/api/consultor?serie=Fairy%20Tail
 make: grunt
+recurso:
+  nombre: serie/Shingeki
+  metodo: POST
+  payload:
+    - descripcion: "Ultima Temporada Shingeki no Kyojin"
+    - link: https://www3.animeflv.net/anime/shingeki-no-kyojin-the-final-season
+  IDs:
+    - Shingeki
