@@ -9,6 +9,8 @@ let etcd = new Etcd("127.0.0.1:2379");
 
 etcd.get("port", port);
 
+port = process.env.PORT
+
 //Si no estuviera funcionando o no puede obtener el valor de la variable, damos un valor por defecto
 if(!port){
 
