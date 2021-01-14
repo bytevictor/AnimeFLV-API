@@ -1,7 +1,7 @@
 import { app } from './index';
 import Etcd from 'node-etcd';
 
-const default_port = 8080;
+const default_port = 80;
 let port; // default port to listen
 
 //Intentamos obtener los datos de la configuración distribuida
