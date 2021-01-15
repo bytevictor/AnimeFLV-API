@@ -48,7 +48,7 @@ https://animeflv-api.herokuapp.com/status
 
 Ninguna de las rutas de la api devuelve un status 500
 
-Las distintas rutas de la api se pueden comprobar en la [Documentacion de la API del anterior hito](https://github.com/bytevictor/AnimeFLV-API/tree/master/docs/microservicio#microservicio-con-expressjs) 
+Las distintas rutas de la api se pueden comprobar en la [Documentacion de la API de la anterior entrega](https://github.com/bytevictor/AnimeFLV-API/tree/master/docs/microservicio#microservicio-con-expressjs) 
 
 ## Documentos
 
