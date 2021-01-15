@@ -44,9 +44,11 @@ De este modo, el sistema detecta cada vez que se realiza un push en el repositor
 
 **Link al microservicio desplegado**
 
-https://animeflv-api.herokuapp.com/
+https://animeflv-api.herokuapp.com/status
 
 Ninguna de las rutas de la api devuelve un status 500
+
+Las distintas rutas de la api se pueden comprobar en la [Documentacion de la API del anterior hito](https://github.com/bytevictor/AnimeFLV-API/tree/master/docs/microservicio#microservicio-con-expressjs) 
 
 ## Documentos
 
