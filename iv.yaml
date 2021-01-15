@@ -4,6 +4,7 @@ test: tests/serie.spec.ts
 taskfile: package.json
 URL: https://anime-flv-api.vercel.app/api/consultor?serie=Fairy%20Tail
 make: grunt
+PaaS: https://animeflv-api.herokuapp.com/
 recurso:
   nombre: serie/Shingeki
   metodo: POST
