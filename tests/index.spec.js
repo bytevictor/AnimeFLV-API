@@ -3,6 +3,18 @@ var expect = require('chai').expect;
 const request = require('supertest');
 app = require('../src/index.js');
 
+describe( "Probando status", function() {
+  it('Deberia devolver un status correcto', function (done) {
+    request(app)
+     .get('/status')
+     .expect(200)
+     .end(function(err, res) {
+      expect(res.text).equal('{ status: "OK" }');
+      done();
+    });
+     
+  });
+});
 
 describe( "Probando creacion de serie", function() {
     it('Deberia devolver un error porque faltan parametros', function (done) {

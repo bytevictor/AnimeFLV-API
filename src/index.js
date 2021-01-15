@@ -61,6 +61,7 @@ app.post("/capitulo/:nombreserie/:numcapitulo", (req, res) => {
         try {
             let serie = usuario_server.getSerie(nombreserie);
             serie.anadirCapitulo(Number(numcap), link);
+            res.location("capitulo/" + encodeURIComponent(nombreserie) + "/" + encodeURIComponent(numcap));
             res.send({ "OK": numcap, link });
         }
         catch (error) {
@@ -123,6 +124,7 @@ app.post("/serie/:nombreserie", (req, res) => {
         let nueva_serie = new serie_1.default(nombreserie, descripcion, link);
         try {
             usuario_server.anadirSerie(nueva_serie);
+            res.location("serie/" + encodeURIComponent(nombreserie));
             res.send({ "OK": nombreserie });
         }
         catch (error) {
@@ -176,5 +178,8 @@ app.get("/serie/:nombreserie", (req, res) => {
 });
 app.get("/holamundo", (req, res) => {
     res.send("Hola Mundo!");
+});
+app.get("/status", (req, res) => {
+    res.send("{ status: \"OK\" }");
 });
 module.exports = app;
