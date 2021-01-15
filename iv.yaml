@@ -9,7 +9,7 @@ recurso:
   nombre: serie/Shingeki
   metodo: POST
   payload:
-    - descripcion: "Ultima Temporada Shingeki no Kyojin"
-    - link: https://www3.animeflv.net/anime/shingeki-no-kyojin-the-final-season
+    descripcion: "Ultima Temporada Shingeki no Kyojin"
+    link: https://www3.animeflv.net/anime/shingeki-no-kyojin-the-final-season
   IDs:
     - Shingeki
