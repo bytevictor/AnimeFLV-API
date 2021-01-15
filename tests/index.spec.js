@@ -33,11 +33,11 @@ describe( "Probando creacion de serie", function() {
         request(app)
          .post('/serie/Fairy%20Tail')
          .send({descripcion:'Fairy tail es un gremio de magos', link:'https://www3.animeflv.net/anime/fairy-tail'})
-         .expect(200)
          .end(function(err, res) {
           var respuesta = JSON.stringify(res.body);
           expect(respuesta).equal('{"OK":"Fairy Tail"}');
           expect(res.header.location).equal('serie/Fairy%20Tail')
+          expect(res.status).equal(201)
           done();
         });
          
@@ -49,10 +49,10 @@ describe( "Probando post de capitulo", function() {
       request(app)
        .post('/capitulo/Fairy%20Tail/1')
        .send({link:'https://www3.animeflv.net/ver/fairy-tail-1'})
-       .expect(200)
        .end(function(err, res) {
         expect(res.text).equal('{"OK":"1","link":"https://www3.animeflv.net/ver/fairy-tail-1"}');
         expect(res.header.location).equal('capitulo/Fairy%20Tail/1')
+        expect(res.status).equal(201)
         done();
       });
        
@@ -62,10 +62,10 @@ describe( "Probando post de capitulo", function() {
         request(app)
          .post('/capitulo/Fairy%20Tail/2')
          .send({link:'https://www3.animeflv.net/ver/fairy-tail-2'})
-         .expect(200)
          .end(function(err, res) {
           expect(res.text).equal('{"OK":"2","link":"https://www3.animeflv.net/ver/fairy-tail-2"}');
           expect(res.header.location).equal('capitulo/Fairy%20Tail/2')
+          expect(res.status).equal(201)
           done();
         });
          
