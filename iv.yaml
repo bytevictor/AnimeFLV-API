@@ -6,10 +6,8 @@ URL: https://anime-flv-api.vercel.app/api/consultor?serie=Fairy%20Tail
 make: grunt
 PaaS: https://animeflv-api.herokuapp.com/
 recurso:
-  nombre: serie
+  nombre: serie/Shingeky
   metodo: POST
   payload:
     descripcion: "Ultima Temporada Shingeki no Kyojin"
     link: https://www3.animeflv.net/anime/shingeki-no-kyojin-the-final-season
-  IDs:
-    - Shingeki
