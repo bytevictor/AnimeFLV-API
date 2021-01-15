@@ -34,7 +34,13 @@ El despliegue en Heroku ha sido muy sencillo, al igual que en otros servicios si
 
 ![](docs/paas/img/conectado.png)
 
+**Despliegue automático**
 
+De nuevo, Heroku tiene una muy buena integración con github y toda la configuración para el despligue automático viene preconfigurada y no es necesario ni configurar un webhook a mano, consiste en darle al siguiente botón en la sección de configuración. 
+
+De este modo, el sistema detecta cada vez que se realiza un push en el repositorio, reconstruye y despliega de nuevo el microservicio, además se ha optado por activar la opción que nos aporta Heroku para que espere a que los sistemas de integración continua pasen correctamente los tests antes de hacer un nuevo despligue para asegurarnos de que siempre habrá un despligue funcionando.
+
+![](docs/paas/img/despliegue_autom.png)
 
 ## Documentos
 
