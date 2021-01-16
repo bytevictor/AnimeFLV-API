@@ -61,10 +61,13 @@ app.post("/capitulo/:nombreserie/:numcapitulo", (req, res) => {
         try {
             let serie = usuario_server.getSerie(nombreserie);
             serie.anadirCapitulo(Number(numcap), link);
-            res.location("capitulo/" + encodeURIComponent(nombreserie) + "/" + encodeURIComponent(numcap));
+            res.setHeader('Location', "capitulo/" + encodeURIComponent(nombreserie)
+                + "/" + encodeURIComponent(numcap));
             res.status(201).send({ "OK": numcap, link });
         }
         catch (error) {
+            res.setHeader('Location', "capitulo/" + encodeURIComponent(nombreserie)
+                + "/" + encodeURIComponent(numcap));
             //Ya existe el capitulo
             res.status(201).send({ "OK": numcap, link });
         }
@@ -124,10 +127,11 @@ app.post("/serie/:nombreserie", (req, res) => {
         let nueva_serie = new serie_1.default(nombreserie, descripcion, link);
         try {
             usuario_server.anadirSerie(nueva_serie);
-            res.location("serie/" + encodeURIComponent(nombreserie));
+            res.setHeader('Location', "serie/" + encodeURIComponent(nombreserie));
             res.status(201).send({ "OK": nombreserie });
         }
         catch (error) {
+            res.setHeader('Location', "serie/" + encodeURIComponent(nombreserie));
             // Ya existe la serie
             res.status(201).send({ "OK": nombreserie });
         }
@@ -183,4 +187,3 @@ app.get("/status", (req, res) => {
     res.send("{ status: \"OK\" }");
 });
 module.exports = app;
-
