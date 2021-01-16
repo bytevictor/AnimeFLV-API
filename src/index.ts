@@ -70,11 +70,11 @@ app.post( "/capitulo/:nombreserie/:numcapitulo", ( req, res ) => {
 
             serie.anadirCapitulo(Number(numcap),link);
 
-            res.setHeader('Location', "capitulo/" + encodeURIComponent(nombreserie) 
+            res.setHeader('Location', "/capitulo/" + encodeURIComponent(nombreserie) 
                                                +"/"+encodeURIComponent(numcap) );
             res.status(201).send( {"OK": numcap,link } );
         } catch (error){
-            res.setHeader('Location', "capitulo/" + encodeURIComponent(nombreserie) 
+            res.setHeader('Location', "/capitulo/" + encodeURIComponent(nombreserie) 
                                                +"/"+encodeURIComponent(numcap) );
             //Ya existe el capitulo
             res.status(201).send( {"OK": numcap,link } );
@@ -144,10 +144,10 @@ app.post( "/serie/:nombreserie", ( req, res ) => {
 
         try{
             usuario_server.anadirSerie(nueva_serie);
-            res.setHeader('Location', "serie/" + encodeURIComponent(nombreserie) );
+            res.setHeader('Location', "/serie/" + encodeURIComponent(nombreserie) );
             res.status(201).send( {"OK": nombreserie } );
         } catch (error){
-            res.setHeader('Location', "serie/" + encodeURIComponent(nombreserie) );
+            res.setHeader('Location', "/serie/" + encodeURIComponent(nombreserie) );
             // Ya existe la serie
             res.status(201).send( {"OK": nombreserie } );
         }

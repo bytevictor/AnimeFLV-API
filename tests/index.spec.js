@@ -36,7 +36,7 @@ describe( "Probando creacion de serie", function() {
          .end(function(err, res) {
           var respuesta = JSON.stringify(res.body);
           expect(respuesta).equal('{"OK":"Fairy Tail"}');
-          expect(res.header.location).equal('serie/Fairy%20Tail')
+          expect(res.header.location).equal('/serie/Fairy%20Tail')
           expect(res.status).equal(201)
           done();
         });
@@ -51,7 +51,7 @@ describe( "Probando post de capitulo", function() {
        .send({link:'https://www3.animeflv.net/ver/fairy-tail-1'})
        .end(function(err, res) {
         expect(res.text).equal('{"OK":"1","link":"https://www3.animeflv.net/ver/fairy-tail-1"}');
-        expect(res.header.location).equal('capitulo/Fairy%20Tail/1')
+        expect(res.header.location).equal('/capitulo/Fairy%20Tail/1')
         expect(res.status).equal(201)
         done();
       });
@@ -64,7 +64,7 @@ describe( "Probando post de capitulo", function() {
          .send({link:'https://www3.animeflv.net/ver/fairy-tail-2'})
          .end(function(err, res) {
           expect(res.text).equal('{"OK":"2","link":"https://www3.animeflv.net/ver/fairy-tail-2"}');
-          expect(res.header.location).equal('capitulo/Fairy%20Tail/2')
+          expect(res.header.location).equal('/capitulo/Fairy%20Tail/2')
           expect(res.status).equal(201)
           done();
         });
