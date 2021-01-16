@@ -70,7 +70,7 @@ app.post( "/capitulo/:nombreserie/:numcapitulo", ( req, res ) => {
 
             serie.anadirCapitulo(Number(numcap),link);
 
-            res.location( "capitulo/" + encodeURIComponent(nombreserie) + "/" + encodeURIComponent(numcap) );
+            res.setHeader('Location', "serie/" + encodeURIComponent(nombreserie) );
             res.status(201).send( {"OK": numcap,link } );
         } catch (error){
             //Ya existe el capitulo
@@ -141,7 +141,7 @@ app.post( "/serie/:nombreserie", ( req, res ) => {
 
         try{
             usuario_server.anadirSerie(nueva_serie);
-            res.location( "serie/" + encodeURIComponent(nombreserie) );
+            res.setHeader('Location', "serie/" + encodeURIComponent(nombreserie) );
             res.status(201).send( {"OK": nombreserie } );
         } catch (error){
             // Ya existe la serie
